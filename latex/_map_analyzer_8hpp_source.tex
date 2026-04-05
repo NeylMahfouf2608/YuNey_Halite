@@ -1,0 +1,48 @@
+\doxysection{Map\+Analyzer.\+hpp}
+\hypertarget{_map_analyzer_8hpp_source}{}\label{_map_analyzer_8hpp_source}\index{hlt/MapAnalyzer.hpp@{hlt/MapAnalyzer.hpp}}
+\doxymbox{\hyperlink{_map_analyzer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{game_8hpp}{game.hpp}}"{}}\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{game__map_8hpp}{game\_map.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{ship_8hpp}{ship.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{influence__grid_8hpp}{utils/influence\_grid.hpp}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacebot}{bot}}\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classbot_1_1_map_analyzer_ad133107d3dfc6b55547b242286f796d9}{MapAnalyzer}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ std::unordered\_set<hlt::Position>\ m\_claimed\_targets;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classutils_1_1_influence_grid}{utils::InfluenceGrid}}\ m\_influence\_engine;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_ad133107d3dfc6b55547b242286f796d9}{MapAnalyzer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_aefc17c51aadbf0b4cb6996e92f8f7fef}{clear\_claims}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_aa6a9735cc41b790ce29ec1704a413665}{get\_influence}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\&\ ref\_pos)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_a383ce5a57832c5284cc2081f0fb827b4}{get\_distance\_to\_nearest\_base}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\&\ ref\_pos,\ \textcolor{keyword}{const}\ std::shared\_ptr<hlt::Player>\&\ p\_player,\ \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::GameMap}}\&\ ref\_game\_map)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_abb00416f61dee5925cfee4194dfd92dc}{get\_area\_wealth}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\&\ ref\_center,\ \textcolor{keywordtype}{int}\ radius,\ \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::GameMap}}\&\ ref\_game\_map)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_a64d5b2ee146779476c5d116bcbd141b4}{get\_total\_map\_halite}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::GameMap}}\&\ ref\_game\_map)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_a5a383c7723507b52926a60732f6b26ec}{compute\_influence}}(\doxymbox{\hyperlink{structhlt_1_1_game}{hlt::Game}}\&\ ref\_game);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_a41e7e6cf522b9ba16edfee185116934c}{get\_best\_halite\_target}}(\textcolor{keyword}{const}\ std::shared\_ptr<hlt::Ship>\&\ p\_ship,\ \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::GameMap}}\&\ ref\_game\_map);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ std::vector<hlt::Position>\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_aaee76ce4b46bfedb1b5d9ec00f085797}{get\_top\_global\_targets}}(\textcolor{keywordtype}{int}\ count,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::GameMap}}\&\ ref\_game\_map,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_game}{hlt::Game}}\&\ ref\_game)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ std::pair<hlt::Position,\ bool>\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_a086635e1e83b1afae1ad6c839593149f}{find\_best\_dropoff\_location}}(\textcolor{keyword}{const}\ std::shared\_ptr<hlt::Player>\&\ p\_player,\ \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::GameMap}}\&\ ref\_game\_map)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00096\ \ \ \ \ \};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \}\ \textcolor{comment}{//\ namespace\ bot}}
+
+\end{DoxyCode}

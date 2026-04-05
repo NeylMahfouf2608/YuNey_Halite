@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['g_5fscore_0',['g_score',['../structbot_1_1_a_star_node.html#ab7484301236080db55c7ec91cd09401b',1,'bot::AStarNode::g_score'],['../structutils_1_1_a_star_node.html#a0dcbc607c40d7aa271080f1611d3f888',1,'utils::AStarNode::g_score']]],
+  ['game_5fmap_1',['game_map',['../structhlt_1_1_game.html#a0fa31a87c2d546d5e04e18f55c1f3505',1,'hlt::Game']]],
+  ['gene_5fcongestion_5fpenalty_2',['GENE_CONGESTION_PENALTY',['../namespacehlt_1_1constants.html#a989f4c31f85c1d2d098b7582eccb107e',1,'hlt::constants']]],
+  ['gene_5fdropoff_5fdist_3',['GENE_DROPOFF_DIST',['../namespacehlt_1_1constants.html#a6b31c0e3718d1be00a928a17d494f7cd',1,'hlt::constants']]],
+  ['gene_5fdropoff_5fmin_5fships_4',['GENE_DROPOFF_MIN_SHIPS',['../namespacehlt_1_1constants.html#ac2e5817b546dbc151b64b41d9a252da6',1,'hlt::constants']]],
+  ['gene_5fdropoff_5fwealth_5',['GENE_DROPOFF_WEALTH',['../namespacehlt_1_1constants.html#a25fdfa21446f04efacc942c6a29cd7b2',1,'hlt::constants']]],
+  ['gene_5feco_5fabandon_5fpenalty_6',['GENE_ECO_ABANDON_PENALTY',['../namespacehlt_1_1constants.html#a613b0524daef268ca0ebde9948f5c4a5',1,'hlt::constants']]],
+  ['gene_5fendgame_5fturn_5foffset_7',['GENE_ENDGAME_TURN_OFFSET',['../namespacehlt_1_1constants.html#ac86f89ad0a0abe271b2da93a462ffe1a',1,'hlt::constants']]],
+  ['gene_5finspiration_5fbonus_8',['GENE_INSPIRATION_BONUS',['../namespacehlt_1_1constants.html#a341223ac95f9ddbb4736976602e4ac0a',1,'hlt::constants']]],
+  ['gene_5fkamikaze_5fmin_5fdanger_9',['GENE_KAMIKAZE_MIN_DANGER',['../namespacehlt_1_1constants.html#a79249e3b2d4c53186516e3f092341767',1,'hlt::constants']]],
+  ['gene_5fkamikaze_5fprofit_10',['GENE_KAMIKAZE_PROFIT',['../namespacehlt_1_1constants.html#aa89a870af913ce82b89e1ecfa19cfc58',1,'hlt::constants']]],
+  ['gene_5fmining_5fthreshold_5fmax_11',['GENE_MINING_THRESHOLD_MAX',['../namespacehlt_1_1constants.html#aa994ed3884f9142835f0c53a94b6ef11',1,'hlt::constants']]],
+  ['gene_5fmining_5fthreshold_5fmin_12',['GENE_MINING_THRESHOLD_MIN',['../namespacehlt_1_1constants.html#a5ce59ec59b826acaf6102c60b355bd8a',1,'hlt::constants']]],
+  ['gene_5fnames_13',['GENE_NAMES',['../trainer_8cpp.html#af1e4c503576c0f96f337c56b2c4c2e57',1,'trainer.cpp']]],
+  ['gene_5freturn_5fthreshold_14',['GENE_RETURN_THRESHOLD',['../namespacehlt_1_1constants.html#aa8549a8eb5eb993543e8795e985705c0',1,'hlt::constants']]],
+  ['gene_5fspawn_5fmax_5fships_5fratio_15',['GENE_SPAWN_MAX_SHIPS_RATIO',['../namespacehlt_1_1constants.html#addd05aba0f6650484e3b2450159df91a',1,'hlt::constants']]],
+  ['gene_5fspawn_5fwealth_5fratio_16',['GENE_SPAWN_WEALTH_RATIO',['../namespacehlt_1_1constants.html#a3fb9fe88b06ed9dbf6fa49ceeca61884',1,'hlt::constants']]],
+  ['gene_5fstop_5fspawn_5fturn_17',['GENE_STOP_SPAWN_TURN',['../namespacehlt_1_1constants.html#a2edeb3ab2b4f565e8015b338f126606a',1,'hlt::constants']]],
+  ['generate_18',['GENERATE',['../command_8cpp.html#a47df9f0a85824883b6f83320f47f1436',1,'command.cpp']]],
+  ['generations_19',['GENERATIONS',['../trainer_8cpp.html#ae13c29012af38e6f593d59dd6b992538',1,'trainer.cpp']]],
+  ['genes_20',['genes',['../structutils_1_1_genome.html#a8d455d0e25fd7726bc77889262e664b9',1,'utils::Genome']]]
+];

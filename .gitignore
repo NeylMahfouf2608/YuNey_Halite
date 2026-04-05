@@ -1,3 +1,4 @@
+# --- CMake ---
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
@@ -10,3 +11,31 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
+
+# --- Visual Studio ---
+.vs/                   # Stockage des bases de données IntelliSense et config locale
+*.suo                  # Options utilisateur de la solution
+*.user                 # Options utilisateur du projet (souvent redondant avec CMake)
+*.sln.docstates        # État des documents ouverts
+*.VC.db                # Base de données de navigation C++
+*.VC.opendb            # Idem
+
+# --- Build Outputs ---
+# Dossiers générés lors de la compilation (Debug/Release)
+[Dd]ebug/
+x64/
+x86/
+out/                   # Utilisé par certains générateurs CMake
+
+# --- C++ Temp & Logs ---
+*.obj                  # Fichiers objets compilés
+*.pdb                  # Fichiers de debug (Program Database)
+*.idb                  # État de la base de données de compilation
+*.ilk                  # Liaison incrémentale
+*.log                  # Fichiers journaux
+*.tlog                 # Logs de suivi de compilation
+*.lastbuildstate       # État de la dernière compilation
+/build/.vs
+/obj
+/build/MyBot.dir
+/build/Trainer.dir

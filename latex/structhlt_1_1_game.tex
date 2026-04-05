@@ -1,0 +1,105 @@
+\doxysection{hlt::\+Game Struct Reference}
+\hypertarget{structhlt_1_1_game}{}\label{structhlt_1_1_game}\index{hlt::Game@{hlt::Game}}
+
+
+{\ttfamily \+\#include $<$game.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structhlt_1_1_game_ac158b150592479185a513da83565dc53}{Game}} ()
+\item 
+void \doxymbox{\hyperlink{structhlt_1_1_game_a29224d17f8474219f63a6e8a9f56f86c}{ready}} (const std::\+string \&name)
+\item 
+void \doxymbox{\hyperlink{structhlt_1_1_game_a1f5dcbd2c3f1503d4d5e7b7b97260c92}{update\+\_\+frame}} ()
+\item 
+bool \doxymbox{\hyperlink{structhlt_1_1_game_ab37fb24e32396c09a557b9aa4b730a54}{end\+\_\+turn}} (const std::\+vector$<$ \doxymbox{\hyperlink{namespacehlt_ab15a59c27019456130c9677b4ed42006}{Command}} $>$ \&commands)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{structhlt_1_1_game_a39c5501c2631b06cbce02f4aa67178d2}{turn\+\_\+number}}
+\item 
+\doxymbox{\hyperlink{namespacehlt_afc77df762a62bd681029b3beaafe71dd}{Player\+Id}} \doxymbox{\hyperlink{structhlt_1_1_game_a17522c362e33e34769425f4d067e8ffd}{my\+\_\+id}}
+\item 
+std::\+vector$<$ std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_player}{Player}} $>$ $>$ \doxymbox{\hyperlink{structhlt_1_1_game_a31ec93ebbde98dc3cb968b435cc77282}{players}}
+\item 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_player}{Player}} $>$ \doxymbox{\hyperlink{structhlt_1_1_game_a21f426c4491a29b06d5ef4895cc1cdf4}{me}}
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_game_map}{Game\+Map}} $>$ \doxymbox{\hyperlink{structhlt_1_1_game_a0fa31a87c2d546d5e04e18f55c1f3505}{game\+\_\+map}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{structhlt_1_1_game_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structhlt_1_1_game_ac158b150592479185a513da83565dc53}\index{hlt::Game@{hlt::Game}!Game@{Game}}
+\index{Game@{Game}!hlt::Game@{hlt::Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_ac158b150592479185a513da83565dc53} 
+hlt::\+\+Game::\+\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{structhlt_1_1_game_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structhlt_1_1_game_ab37fb24e32396c09a557b9aa4b730a54}\index{hlt::Game@{hlt::Game}!end\_turn@{end\_turn}}
+\index{end\_turn@{end\_turn}!hlt::Game@{hlt::Game}}
+\doxysubsubsection{\texorpdfstring{end\_turn()}{end\_turn()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_ab37fb24e32396c09a557b9aa4b730a54} 
+bool hlt::\+\+Game::\+end\+\_\+turn (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{namespacehlt_ab15a59c27019456130c9677b4ed42006}{Command}} $>$ \&}]{commands}{}\end{DoxyParamCaption})}
+
+\Hypertarget{structhlt_1_1_game_a29224d17f8474219f63a6e8a9f56f86c}\index{hlt::Game@{hlt::Game}!ready@{ready}}
+\index{ready@{ready}!hlt::Game@{hlt::Game}}
+\doxysubsubsection{\texorpdfstring{ready()}{ready()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_a29224d17f8474219f63a6e8a9f56f86c} 
+void hlt::\+\+Game::\+ready (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{structhlt_1_1_game_a1f5dcbd2c3f1503d4d5e7b7b97260c92}\index{hlt::Game@{hlt::Game}!update\_frame@{update\_frame}}
+\index{update\_frame@{update\_frame}!hlt::Game@{hlt::Game}}
+\doxysubsubsection{\texorpdfstring{update\_frame()}{update\_frame()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_a1f5dcbd2c3f1503d4d5e7b7b97260c92} 
+void hlt::\+\+Game::\+update\+\_\+frame (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structhlt_1_1_game_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structhlt_1_1_game_a0fa31a87c2d546d5e04e18f55c1f3505}\index{hlt::Game@{hlt::Game}!game\_map@{game\_map}}
+\index{game\_map@{game\_map}!hlt::Game@{hlt::Game}}
+\doxysubsubsection{\texorpdfstring{game\_map}{game\_map}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_a0fa31a87c2d546d5e04e18f55c1f3505} 
+std::\+unique\+\_\+ptr$<$\doxymbox{\hyperlink{structhlt_1_1_game_map}{Game\+Map}}$>$ hlt::\+\+Game::\+game\+\_\+map}
+
+\Hypertarget{structhlt_1_1_game_a21f426c4491a29b06d5ef4895cc1cdf4}\index{hlt::Game@{hlt::Game}!me@{me}}
+\index{me@{me}!hlt::Game@{hlt::Game}}
+\doxysubsubsection{\texorpdfstring{me}{me}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_a21f426c4491a29b06d5ef4895cc1cdf4} 
+std::\+shared\+\_\+ptr$<$\doxymbox{\hyperlink{structhlt_1_1_player}{Player}}$>$ hlt::\+\+Game::\+me}
+
+\Hypertarget{structhlt_1_1_game_a17522c362e33e34769425f4d067e8ffd}\index{hlt::Game@{hlt::Game}!my\_id@{my\_id}}
+\index{my\_id@{my\_id}!hlt::Game@{hlt::Game}}
+\doxysubsubsection{\texorpdfstring{my\_id}{my\_id}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_a17522c362e33e34769425f4d067e8ffd} 
+\doxymbox{\hyperlink{namespacehlt_afc77df762a62bd681029b3beaafe71dd}{Player\+Id}} hlt::\+\+Game::\+my\+\_\+id}
+
+\Hypertarget{structhlt_1_1_game_a31ec93ebbde98dc3cb968b435cc77282}\index{hlt::Game@{hlt::Game}!players@{players}}
+\index{players@{players}!hlt::Game@{hlt::Game}}
+\doxysubsubsection{\texorpdfstring{players}{players}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_a31ec93ebbde98dc3cb968b435cc77282} 
+std::\+vector$<$std::\+shared\+\_\+ptr$<$\doxymbox{\hyperlink{structhlt_1_1_player}{Player}}$>$ $>$ hlt::\+\+Game::\+players}
+
+\Hypertarget{structhlt_1_1_game_a39c5501c2631b06cbce02f4aa67178d2}\index{hlt::Game@{hlt::Game}!turn\_number@{turn\_number}}
+\index{turn\_number@{turn\_number}!hlt::Game@{hlt::Game}}
+\doxysubsubsection{\texorpdfstring{turn\_number}{turn\_number}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_a39c5501c2631b06cbce02f4aa67178d2} 
+int hlt::\+\+Game::\+turn\+\_\+number}
+
+
+
+The documentation for this struct was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+hlt/\+\doxymbox{\hyperlink{game_8hpp}{game.\+hpp}}\item 
+hlt/\+\doxymbox{\hyperlink{game_8cpp}{game.\+cpp}}\end{DoxyCompactItemize}

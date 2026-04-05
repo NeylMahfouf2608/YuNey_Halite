@@ -1,0 +1,65 @@
+\doxysection{bot::\+AStar\+Node Struct Reference}
+\hypertarget{structbot_1_1_a_star_node}{}\label{structbot_1_1_a_star_node}\index{bot::AStarNode@{bot::AStarNode}}
+
+
+Nœud pour la file de priorité A\texorpdfstring{$\ast$}{*}.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{structbot_1_1_a_star_node_a3896cb1aad3070c385f83801cae52c75}{operator$>$}} (const \doxymbox{\hyperlink{structbot_1_1_a_star_node}{AStar\+Node}} \&ref\+\_\+other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \doxymbox{\hyperlink{structbot_1_1_a_star_node_a12ce0ae532a6391d6a336058bced23a6}{pos}}
+\item 
+int \doxymbox{\hyperlink{structbot_1_1_a_star_node_ab7484301236080db55c7ec91cd09401b}{g\+\_\+score}}
+\item 
+int \doxymbox{\hyperlink{structbot_1_1_a_star_node_a76ac8717f16967c881e6ad189c5bb29a}{f\+\_\+score}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Nœud pour la file de priorité A\texorpdfstring{$\ast$}{*}. 
+
+Le tie-\/breaker sur g\+\_\+score privilégie les chemins qui ont déjà parcouru le plus de distance en cas d\textquotesingle{}égalité sur f\+\_\+score, évitant l\textquotesingle{}exploration de zigzag. 
+
+\label{doc-func-members}
+\Hypertarget{structbot_1_1_a_star_node_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structbot_1_1_a_star_node_a3896cb1aad3070c385f83801cae52c75}\index{bot::AStarNode@{bot::AStarNode}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!bot::AStarNode@{bot::AStarNode}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily \label{structbot_1_1_a_star_node_a3896cb1aad3070c385f83801cae52c75} 
+bool bot::\+\+AStar\+Node::\+operator$>$ (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structbot_1_1_a_star_node}{AStar\+Node}} \&}]{ref\+\_\+other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structbot_1_1_a_star_node_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structbot_1_1_a_star_node_a76ac8717f16967c881e6ad189c5bb29a}\index{bot::AStarNode@{bot::AStarNode}!f\_score@{f\_score}}
+\index{f\_score@{f\_score}!bot::AStarNode@{bot::AStarNode}}
+\doxysubsubsection{\texorpdfstring{f\_score}{f\_score}}
+{\footnotesize\ttfamily \label{structbot_1_1_a_star_node_a76ac8717f16967c881e6ad189c5bb29a} 
+int bot::\+\+AStar\+Node::\+f\+\_\+score}
+
+\Hypertarget{structbot_1_1_a_star_node_ab7484301236080db55c7ec91cd09401b}\index{bot::AStarNode@{bot::AStarNode}!g\_score@{g\_score}}
+\index{g\_score@{g\_score}!bot::AStarNode@{bot::AStarNode}}
+\doxysubsubsection{\texorpdfstring{g\_score}{g\_score}}
+{\footnotesize\ttfamily \label{structbot_1_1_a_star_node_ab7484301236080db55c7ec91cd09401b} 
+int bot::\+\+AStar\+Node::\+g\+\_\+score}
+
+\Hypertarget{structbot_1_1_a_star_node_a12ce0ae532a6391d6a336058bced23a6}\index{bot::AStarNode@{bot::AStarNode}!pos@{pos}}
+\index{pos@{pos}!bot::AStarNode@{bot::AStarNode}}
+\doxysubsubsection{\texorpdfstring{pos}{pos}}
+{\footnotesize\ttfamily \label{structbot_1_1_a_star_node_a12ce0ae532a6391d6a336058bced23a6} 
+\doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} bot::\+\+AStar\+Node::\+pos}
+
+
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+hlt/\+\doxymbox{\hyperlink{navigator_8cpp}{navigator.\+cpp}}\end{DoxyCompactItemize}

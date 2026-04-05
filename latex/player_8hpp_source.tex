@@ -1,0 +1,34 @@
+\doxysection{player.\+hpp}
+\hypertarget{player_8hpp_source}{}\label{player_8hpp_source}\index{hlt/player.hpp@{hlt/player.hpp}}
+\doxymbox{\hyperlink{player_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{types_8hpp}{types.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{shipyard_8hpp}{shipyard.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{ship_8hpp}{ship.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{dropoff_8hpp}{dropoff.hpp}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacehlt}{hlt}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structhlt_1_1_player_a82c0ba37f9fd408ec8b03e30263e127e}{Player}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_afc77df762a62bd681029b3beaafe71dd}{PlayerId}}\ \doxymbox{\hyperlink{structhlt_1_1_player_ad510f2d57da38dbec95c267484dedc17}{id}};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::shared\_ptr<Shipyard>\ \doxymbox{\hyperlink{structhlt_1_1_player_aa578597bb3d33517c1ca6ec69beae823}{shipyard}};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_a2267f2839bc219a9ce812521ac469938}{Halite}}\ \doxymbox{\hyperlink{structhlt_1_1_player_aaee4f57de686113dd4dbb5d2f4a0dcba}{halite}};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ std::unordered\_map<EntityId,\ std::shared\_ptr<Ship>>\ \doxymbox{\hyperlink{structhlt_1_1_player_a41eadd82eea0a16abd424f253237857d}{ships}};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::unordered\_map<EntityId,\ std::shared\_ptr<Dropoff>>\ \doxymbox{\hyperlink{structhlt_1_1_player_a79fb8d3d5ce346ad1ed5f03951c9bac8}{dropoffs}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_player_a82c0ba37f9fd408ec8b03e30263e127e}{Player}}(\doxymbox{\hyperlink{namespacehlt_afc77df762a62bd681029b3beaafe71dd}{PlayerId}}\ player\_id,\ \textcolor{keywordtype}{int}\ shipyard\_x,\ \textcolor{keywordtype}{int}\ shipyard\_y)\ :}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_player_ad510f2d57da38dbec95c267484dedc17}{id}}(player\_id),}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_player_aa578597bb3d33517c1ca6ec69beae823}{shipyard}}(\doxymbox{\hyperlink{namespacestd}{std}}::make\_shared<\doxymbox{\hyperlink{structhlt_1_1_shipyard}{Shipyard}}>(player\_id,\ shipyard\_x,\ shipyard\_y)),}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_player_aaee4f57de686113dd4dbb5d2f4a0dcba}{halite}}(0)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{structhlt_1_1_player_a5973d2cc50de17b4148b323752b42756}{\_update}}(\textcolor{keywordtype}{int}\ num\_ships,\ \textcolor{keywordtype}{int}\ num\_dropoffs,\ \doxymbox{\hyperlink{namespacehlt_a2267f2839bc219a9ce812521ac469938}{Halite}}\ \doxymbox{\hyperlink{structhlt_1_1_player_aaee4f57de686113dd4dbb5d2f4a0dcba}{halite}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<Player>\ \doxymbox{\hyperlink{structhlt_1_1_player_a724aba61f76b956dd4e036a004ac4fe2}{\_generate}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \};}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}

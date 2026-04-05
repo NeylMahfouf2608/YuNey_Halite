@@ -1,0 +1,32 @@
+\doxysection{hlt/\+utils/\+pathfinder.hpp File Reference}
+\hypertarget{pathfinder_8hpp}{}\label{pathfinder_8hpp}\index{hlt/utils/pathfinder.hpp@{hlt/utils/pathfinder.hpp}}
+
+
+Algorithme de recherche de chemin A\texorpdfstring{$\ast$}{*} universel, optimisé "{}\+Zero-\/\+Allocation"{}.  
+
+
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$functional$>$}\newline
+{\ttfamily \+\#include $<$queue$>$}\newline
+{\ttfamily \+\#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structutils_1_1_a_star_node}{utils::\+\+AStar\+Node$<$ State\+Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespaceutils}{utils}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename State\+Type, typename Hash\+Func = std::\+hash$<$\+State\+Type$>$$>$ }\\std::\+vector$<$ State\+Type $>$ \doxymbox{\hyperlink{namespaceutils_a54d1397ab44438fcf1710bc6c4a838d1}{utils::\+find\+\_\+path}} (const State\+Type \&ref\+\_\+start, const State\+Type \&ref\+\_\+goal, std::\+function$<$ void(const State\+Type \&, std::\+function$<$ void(const State\+Type \&, int)$>$)$>$ get\+\_\+neighbors, std::\+function$<$ int(const State\+Type \&, const State\+Type \&)$>$ get\+\_\+heuristic)
+\begin{DoxyCompactList}\small\item\em Trouve le chemin optimal via A\texorpdfstring{$\ast$}{*} avec injection de dépendances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Algorithme de recherche de chemin A\texorpdfstring{$\ast$}{*} universel, optimisé "{}\+Zero-\/\+Allocation"{}. 
+

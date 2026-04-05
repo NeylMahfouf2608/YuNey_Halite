@@ -1,0 +1,195 @@
+\doxysection{bot::\+Navigator Class Reference}
+\hypertarget{classbot_1_1_navigator}{}\label{classbot_1_1_navigator}\index{bot::Navigator@{bot::Navigator}}
+
+
+Moteur de déplacement utilisant A\texorpdfstring{$\ast$}{*} pour le ciblage et un Flow Field pour les retours.  
+
+
+
+
+{\ttfamily \+\#include $<$navigator.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classbot_1_1_navigator_a3f66ee086bcb65dd3fa912c9f50a7ff8}{Navigator}} ()=default
+\item 
+bool \doxymbox{\hyperlink{classbot_1_1_navigator_a3cde74373008622dc065d04e21c306c4}{is\+\_\+reserved}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&ref\+\_\+pos) const
+\begin{DoxyCompactList}\small\item\em Vérifie si une position est déjà réservée par un autre vaisseau allié. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classbot_1_1_navigator_a4bd15584af40aa132d04aafca51a10e2}{clear\+\_\+reservations}} ()
+\begin{DoxyCompactList}\small\item\em Nettoie l\textquotesingle{}ensemble des réservations (à appeler au début de chaque tour). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{hlt::\+\+Direction}} \doxymbox{\hyperlink{classbot_1_1_navigator_a47c9af15e53d1eae3bf36d14ec81ebdc}{navigate\+\_\+to}} (const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_ship}{hlt::\+\+Ship}} $>$ \&p\+\_\+ship, const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&ref\+\_\+destination, \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&ref\+\_\+game\+\_\+map, const \doxymbox{\hyperlink{classbot_1_1_map_analyzer}{Map\+Analyzer}} \&ref\+\_\+analyzer)
+\begin{DoxyCompactList}\small\item\em Calcule le meilleur mouvement sécurisé vers une cible (Algorithme A\texorpdfstring{$\ast$}{*}). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classbot_1_1_navigator_a60eaa980a3f26e81f86bba3ae9430220}{stay\+\_\+still}} (const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_ship}{hlt::\+\+Ship}} $>$ \&p\+\_\+ship)
+\begin{DoxyCompactList}\small\item\em Ordonne à un vaisseau de rester immobile en réservant sa case actuelle. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classbot_1_1_navigator_a4e89f17fe984348c65b8422f13356f08}{compute\+\_\+return\+\_\+flow\+\_\+field}} (const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_player}{hlt::\+\+Player}} $>$ \&p\+\_\+player, \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&ref\+\_\+game\+\_\+map, const \doxymbox{\hyperlink{classbot_1_1_map_analyzer}{Map\+Analyzer}} \&ref\+\_\+analyzer)
+\begin{DoxyCompactList}\small\item\em Calcule la carte des flux de retour pour toute la flotte (Dijkstra Multi-\/\+Sources). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classbot_1_1_navigator_a00a217fd359f49db9ff28000de7e84ed}{reserve\+\_\+position}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&ref\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em Verrouille manuellement une position sur la carte. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classbot_1_1_navigator_acfd3e2ef6774f2d98cfb459ff191df84}{unreserve\+\_\+position}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&ref\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em Libère une position préalablement réservée (utilisé pour les swaps). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{hlt::\+\+Direction}} \doxymbox{\hyperlink{classbot_1_1_navigator_ab150567acbe06b4f732f1edd3f71ebf3}{get\+\_\+return\+\_\+direction}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&ref\+\_\+pos) const
+\begin{DoxyCompactList}\small\item\em Récupère la direction de retour précalculée pour une case spécifique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Moteur de déplacement utilisant A\texorpdfstring{$\ast$}{*} pour le ciblage et un Flow Field pour les retours. 
+
+\label{doc-constructors}
+\Hypertarget{classbot_1_1_navigator_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classbot_1_1_navigator_a3f66ee086bcb65dd3fa912c9f50a7ff8}\index{bot::Navigator@{bot::Navigator}!Navigator@{Navigator}}
+\index{Navigator@{Navigator}!bot::Navigator@{bot::Navigator}}
+\doxysubsubsection{\texorpdfstring{Navigator()}{Navigator()}}
+{\footnotesize\ttfamily \label{classbot_1_1_navigator_a3f66ee086bcb65dd3fa912c9f50a7ff8} 
+bot::\+\+Navigator::\+\+Navigator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classbot_1_1_navigator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classbot_1_1_navigator_a4bd15584af40aa132d04aafca51a10e2}\index{bot::Navigator@{bot::Navigator}!clear\_reservations@{clear\_reservations}}
+\index{clear\_reservations@{clear\_reservations}!bot::Navigator@{bot::Navigator}}
+\doxysubsubsection{\texorpdfstring{clear\_reservations()}{clear\_reservations()}}
+{\footnotesize\ttfamily \label{classbot_1_1_navigator_a4bd15584af40aa132d04aafca51a10e2} 
+void bot::\+\+Navigator::\+clear\+\_\+reservations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Nettoie l\textquotesingle{}ensemble des réservations (à appeler au début de chaque tour). 
+
+\Hypertarget{classbot_1_1_navigator_a4e89f17fe984348c65b8422f13356f08}\index{bot::Navigator@{bot::Navigator}!compute\_return\_flow\_field@{compute\_return\_flow\_field}}
+\index{compute\_return\_flow\_field@{compute\_return\_flow\_field}!bot::Navigator@{bot::Navigator}}
+\doxysubsubsection{\texorpdfstring{compute\_return\_flow\_field()}{compute\_return\_flow\_field()}}
+{\footnotesize\ttfamily \label{classbot_1_1_navigator_a4e89f17fe984348c65b8422f13356f08} 
+void bot::\+\+Navigator::\+compute\+\_\+return\+\_\+flow\+\_\+field (\begin{DoxyParamCaption}\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_player}{hlt::\+\+Player}} $>$ \&}]{p\+\_\+player}{, }\item[{\doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&}]{ref\+\_\+game\+\_\+map}{, }\item[{const \doxymbox{\hyperlink{classbot_1_1_map_analyzer}{Map\+Analyzer}} \&}]{ref\+\_\+analyzer}{}\end{DoxyParamCaption})}
+
+
+
+Calcule la carte des flux de retour pour toute la flotte (Dijkstra Multi-\/\+Sources). 
+
+Génère une carte de directions (Flow Field) vers la base la plus proche.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+player} & Pointeur constant vers le joueur actuel (pour lire ses bases). \\
+\hline
+{\em ref\+\_\+game\+\_\+map} & Référence à la carte du jeu. \\
+\hline
+{\em ref\+\_\+analyzer} & Référence à l\textquotesingle{}analyseur de la carte.\\
+\hline
+\end{DoxyParams}
+Utilise un Dijkstra inversé (depuis les bases vers la carte). \Hypertarget{classbot_1_1_navigator_ab150567acbe06b4f732f1edd3f71ebf3}\index{bot::Navigator@{bot::Navigator}!get\_return\_direction@{get\_return\_direction}}
+\index{get\_return\_direction@{get\_return\_direction}!bot::Navigator@{bot::Navigator}}
+\doxysubsubsection{\texorpdfstring{get\_return\_direction()}{get\_return\_direction()}}
+{\footnotesize\ttfamily \label{classbot_1_1_navigator_ab150567acbe06b4f732f1edd3f71ebf3} 
+\doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{hlt::\+\+Direction}} bot::\+\+Navigator::\+get\+\_\+return\+\_\+direction (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&}]{ref\+\_\+pos}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère la direction de retour précalculée pour une case spécifique. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+\_\+pos} & La position où se trouve le vaisseau. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La direction optimale pour rentrer à la base. 
+\end{DoxyReturn}
+\Hypertarget{classbot_1_1_navigator_a3cde74373008622dc065d04e21c306c4}\index{bot::Navigator@{bot::Navigator}!is\_reserved@{is\_reserved}}
+\index{is\_reserved@{is\_reserved}!bot::Navigator@{bot::Navigator}}
+\doxysubsubsection{\texorpdfstring{is\_reserved()}{is\_reserved()}}
+{\footnotesize\ttfamily \label{classbot_1_1_navigator_a3cde74373008622dc065d04e21c306c4} 
+bool bot::\+\+Navigator::\+is\+\_\+reserved (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&}]{ref\+\_\+pos}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Vérifie si une position est déjà réservée par un autre vaisseau allié. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+\_\+pos} & La position à tester. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la case est réservée, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{classbot_1_1_navigator_a47c9af15e53d1eae3bf36d14ec81ebdc}\index{bot::Navigator@{bot::Navigator}!navigate\_to@{navigate\_to}}
+\index{navigate\_to@{navigate\_to}!bot::Navigator@{bot::Navigator}}
+\doxysubsubsection{\texorpdfstring{navigate\_to()}{navigate\_to()}}
+{\footnotesize\ttfamily \label{classbot_1_1_navigator_a47c9af15e53d1eae3bf36d14ec81ebdc} 
+\doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{hlt::\+\+Direction}} bot::\+\+Navigator::\+navigate\+\_\+to (\begin{DoxyParamCaption}\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_ship}{hlt::\+\+Ship}} $>$ \&}]{p\+\_\+ship}{, }\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&}]{ref\+\_\+destination}{, }\item[{\doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&}]{ref\+\_\+game\+\_\+map}{, }\item[{const \doxymbox{\hyperlink{classbot_1_1_map_analyzer}{Map\+Analyzer}} \&}]{ref\+\_\+analyzer}{}\end{DoxyParamCaption})}
+
+
+
+Calcule le meilleur mouvement sécurisé vers une cible (Algorithme A\texorpdfstring{$\ast$}{*}). 
+
+Pathfinding A\texorpdfstring{$\ast$}{*} dynamique pour la navigation offensive ou de minage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+ship} & Pointeur constant vers le vaisseau à déplacer. \\
+\hline
+{\em ref\+\_\+destination} & La position cible à atteindre. \\
+\hline
+{\em ref\+\_\+game\+\_\+map} & Référence à la carte du jeu. \\
+\hline
+{\em ref\+\_\+analyzer} & Référence à l\textquotesingle{}analyseur pour lire les dangers (Influence). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La direction \doxylink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{hlt::\+\+Direction} optimale. 
+\end{DoxyReturn}
+\Hypertarget{classbot_1_1_navigator_a00a217fd359f49db9ff28000de7e84ed}\index{bot::Navigator@{bot::Navigator}!reserve\_position@{reserve\_position}}
+\index{reserve\_position@{reserve\_position}!bot::Navigator@{bot::Navigator}}
+\doxysubsubsection{\texorpdfstring{reserve\_position()}{reserve\_position()}}
+{\footnotesize\ttfamily \label{classbot_1_1_navigator_a00a217fd359f49db9ff28000de7e84ed} 
+void bot::\+\+Navigator::\+reserve\+\_\+position (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&}]{ref\+\_\+pos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verrouille manuellement une position sur la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+\_\+pos} & La position à réserver. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classbot_1_1_navigator_a60eaa980a3f26e81f86bba3ae9430220}\index{bot::Navigator@{bot::Navigator}!stay\_still@{stay\_still}}
+\index{stay\_still@{stay\_still}!bot::Navigator@{bot::Navigator}}
+\doxysubsubsection{\texorpdfstring{stay\_still()}{stay\_still()}}
+{\footnotesize\ttfamily \label{classbot_1_1_navigator_a60eaa980a3f26e81f86bba3ae9430220} 
+void bot::\+\+Navigator::\+stay\+\_\+still (\begin{DoxyParamCaption}\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_ship}{hlt::\+\+Ship}} $>$ \&}]{p\+\_\+ship}{}\end{DoxyParamCaption})}
+
+
+
+Ordonne à un vaisseau de rester immobile en réservant sa case actuelle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+ship} & Pointeur constant vers le vaisseau. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classbot_1_1_navigator_acfd3e2ef6774f2d98cfb459ff191df84}\index{bot::Navigator@{bot::Navigator}!unreserve\_position@{unreserve\_position}}
+\index{unreserve\_position@{unreserve\_position}!bot::Navigator@{bot::Navigator}}
+\doxysubsubsection{\texorpdfstring{unreserve\_position()}{unreserve\_position()}}
+{\footnotesize\ttfamily \label{classbot_1_1_navigator_acfd3e2ef6774f2d98cfb459ff191df84} 
+void bot::\+\+Navigator::\+unreserve\+\_\+position (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&}]{ref\+\_\+pos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Libère une position préalablement réservée (utilisé pour les swaps). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+\_\+pos} & La position à déverrouiller. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+hlt/\+\doxymbox{\hyperlink{navigator_8hpp}{navigator.\+hpp}}\item 
+hlt/\+\doxymbox{\hyperlink{navigator_8cpp}{navigator.\+cpp}}\end{DoxyCompactItemize}

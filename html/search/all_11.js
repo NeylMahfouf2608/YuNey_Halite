@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['score_0',['score',['../structutils_1_1_edge.html#ac59f919b16da02d701fed459e71219d9',1,'utils::Edge']]],
+  ['setting_20up_20the_20c_20starter_20kit_1',['Setting Up the C++ Starter Kit',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['ship_2',['Ship',['../structhlt_1_1_ship.html',1,'hlt::Ship'],['../structhlt_1_1_ship.html#a3a9c40789b0e1a23d11f457d5ef267f8',1,'hlt::Ship::Ship()']]],
+  ['ship_3',['ship',['../structhlt_1_1_map_cell.html#abf9e7a86a718f9640161ae4ae6a61f70',1,'hlt::MapCell']]],
+  ['ship_2ecpp_4',['ship.cpp',['../ship_8cpp.html',1,'']]],
+  ['ship_2ehpp_5',['ship.hpp',['../ship_8hpp.html',1,'']]],
+  ['ship_5fcost_6',['SHIP_COST',['../namespacehlt_1_1constants.html#a6462ef92415911f5b5785b67bcef2c15',1,'hlt::constants']]],
+  ['ships_7',['ships',['../structhlt_1_1_player.html#a41eadd82eea0a16abd424f253237857d',1,'hlt::Player']]],
+  ['shipstate_8',['ShipState',['../_my_bot_8cpp.html#a5cc8179225e5abfa75feab8d8b8d13e7',1,'MyBot.cpp']]],
+  ['shipyard_9',['Shipyard',['../structhlt_1_1_shipyard.html',1,'hlt::Shipyard'],['../structhlt_1_1_shipyard.html#acb76c2d846f60bdc4eaad90b8fcca4da',1,'hlt::Shipyard::Shipyard()']]],
+  ['shipyard_10',['shipyard',['../structhlt_1_1_player.html#aa578597bb3d33517c1ca6ec69beae823',1,'hlt::Player']]],
+  ['shipyard_2ehpp_11',['shipyard.hpp',['../shipyard_8hpp.html',1,'']]],
+  ['solve_5fgreedy_5fassignment_12',['solve_greedy_assignment',['../namespaceutils.html#aee34a3fd9be7bd830e6ad37f8bf5816f',1,'utils']]],
+  ['source_5fid_13',['source_id',['../structutils_1_1_edge.html#a24ecbb28f9206f95970741359f9e3212',1,'utils::Edge']]],
+  ['south_14',['SOUTH',['../namespacehlt.html#afa3f9da3c4d8c0ddb90a05e39a96b4e0a96e44fa82e5a5263fb92337be422d3eb',1,'hlt']]],
+  ['spawn_15',['spawn',['../structhlt_1_1_shipyard.html#a31b395424ab8a4e1c2e8025ff01318aa',1,'hlt::Shipyard']]],
+  ['spawn_5fship_16',['spawn_ship',['../namespacehlt_1_1command.html#ad488ed1ddfda13802eb8fb19bea2cd09',1,'hlt::command']]],
+  ['starter_20kit_17',['Setting Up the C++ Starter Kit',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['state_18',['state',['../structutils_1_1_a_star_node.html#ae03698578ca2e6c49aa34a9acabcf606',1,'utils::AStarNode']]],
+  ['stay_5fstill_19',['stay_still',['../classbot_1_1_navigator.html#a60eaa980a3f26e81f86bba3ae9430220',1,'bot::Navigator::stay_still()'],['../structhlt_1_1_ship.html#ad59284bfb1727af31be15d7aac2164a8',1,'hlt::Ship::stay_still()']]],
+  ['std_20',['std',['../namespacestd.html',1,'']]],
+  ['still_21',['STILL',['../namespacehlt.html#afa3f9da3c4d8c0ddb90a05e39a96b4e0a8b572d218013b9626d59e6a2b38f18b6',1,'hlt']]],
+  ['stringify_22',['STRINGIFY',['../_c_make_c_compiler_id_8c.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCXXCompilerId.cpp']]],
+  ['stringify_5fhelper_23',['STRINGIFY_HELPER',['../_c_make_c_compiler_id_8c.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER:&#160;CMakeCXXCompilerId.cpp']]],
+  ['structure_24',['structure',['../structhlt_1_1_map_cell.html#a88daf93c9c518f2ad99afae6dd905973',1,'hlt::MapCell']]]
+];

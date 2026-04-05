@@ -1,0 +1,232 @@
+\doxysection{bot::\+Map\+Analyzer Class Reference}
+\hypertarget{classbot_1_1_map_analyzer}{}\label{classbot_1_1_map_analyzer}\index{bot::MapAnalyzer@{bot::MapAnalyzer}}
+
+
+Outil d\textquotesingle{}analyse stratégique de la carte (Influence spatiale, richesse, danger).  
+
+
+
+
+{\ttfamily \+\#include $<$Map\+Analyzer.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classbot_1_1_map_analyzer_ad133107d3dfc6b55547b242286f796d9}{Map\+Analyzer}} ()=default
+\item 
+void \doxymbox{\hyperlink{classbot_1_1_map_analyzer_aefc17c51aadbf0b4cb6996e92f8f7fef}{clear\+\_\+claims}} ()
+\begin{DoxyCompactList}\small\item\em Nettoie la liste des cibles réservées (à appeler chaque tour). \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{classbot_1_1_map_analyzer_aa6a9735cc41b790ce29ec1704a413665}{get\+\_\+influence}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&ref\+\_\+pos) const
+\begin{DoxyCompactList}\small\item\em Renvoie le niveau d\textquotesingle{}influence d\textquotesingle{}une case. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classbot_1_1_map_analyzer_a383ce5a57832c5284cc2081f0fb827b4}{get\+\_\+distance\+\_\+to\+\_\+nearest\+\_\+base}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&ref\+\_\+pos, const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_player}{hlt::\+\+Player}} $>$ \&p\+\_\+player, \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&ref\+\_\+game\+\_\+map) const
+\begin{DoxyCompactList}\small\item\em Trouve la distance vers la base ou le dropoff le plus proche appartenant au joueur. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classbot_1_1_map_analyzer_abb00416f61dee5925cfee4194dfd92dc}{get\+\_\+area\+\_\+wealth}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&ref\+\_\+center, int radius, \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&ref\+\_\+game\+\_\+map) const
+\begin{DoxyCompactList}\small\item\em Calcule la quantité totale de halite dans un rayon donné autour d\textquotesingle{}un centre. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classbot_1_1_map_analyzer_a64d5b2ee146779476c5d116bcbd141b4}{get\+\_\+total\+\_\+map\+\_\+halite}} (const \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&ref\+\_\+game\+\_\+map) const
+\begin{DoxyCompactList}\small\item\em Calcule le Halite total restant sur toute la carte. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classbot_1_1_map_analyzer_a5a383c7723507b52926a60732f6b26ec}{compute\+\_\+influence}} (\doxymbox{\hyperlink{structhlt_1_1_game}{hlt::\+\+Game}} \&ref\+\_\+game)
+\begin{DoxyCompactList}\small\item\em Génère la carte d\textquotesingle{}influence globale (Inspiration et Dangers). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \doxymbox{\hyperlink{classbot_1_1_map_analyzer_a41e7e6cf522b9ba16edfee185116934c}{get\+\_\+best\+\_\+halite\+\_\+target}} (const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_ship}{hlt::\+\+Ship}} $>$ \&p\+\_\+ship, \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&ref\+\_\+game\+\_\+map)
+\begin{DoxyCompactList}\small\item\em Sélectionne la meilleure cible de minage pour un vaisseau donné (Legacy, remplacé par Bipartite). \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} $>$ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_aaee76ce4b46bfedb1b5d9ec00f085797}{get\+\_\+top\+\_\+global\+\_\+targets}} (int count, const \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&ref\+\_\+game\+\_\+map, const \doxymbox{\hyperlink{structhlt_1_1_game}{hlt::\+\+Game}} \&ref\+\_\+game) const
+\begin{DoxyCompactList}\small\item\em Récupère les N meilleures zones de la carte absolues (Valeur brute + Influence). \end{DoxyCompactList}\item 
+std::\+pair$<$ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}}, bool $>$ \doxymbox{\hyperlink{classbot_1_1_map_analyzer_a086635e1e83b1afae1ad6c839593149f}{find\+\_\+best\+\_\+dropoff\+\_\+location}} (const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_player}{hlt::\+\+Player}} $>$ \&p\+\_\+player, \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&ref\+\_\+game\+\_\+map) const
+\begin{DoxyCompactList}\small\item\em Évalue la carte pour trouver l\textquotesingle{}emplacement optimal de construction d\textquotesingle{}un Dropoff. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Outil d\textquotesingle{}analyse stratégique de la carte (Influence spatiale, richesse, danger). 
+
+\label{doc-constructors}
+\Hypertarget{classbot_1_1_map_analyzer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classbot_1_1_map_analyzer_ad133107d3dfc6b55547b242286f796d9}\index{bot::MapAnalyzer@{bot::MapAnalyzer}!MapAnalyzer@{MapAnalyzer}}
+\index{MapAnalyzer@{MapAnalyzer}!bot::MapAnalyzer@{bot::MapAnalyzer}}
+\doxysubsubsection{\texorpdfstring{MapAnalyzer()}{MapAnalyzer()}}
+{\footnotesize\ttfamily \label{classbot_1_1_map_analyzer_ad133107d3dfc6b55547b242286f796d9} 
+bot::\+\+Map\+Analyzer::\+\+Map\+Analyzer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classbot_1_1_map_analyzer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classbot_1_1_map_analyzer_aefc17c51aadbf0b4cb6996e92f8f7fef}\index{bot::MapAnalyzer@{bot::MapAnalyzer}!clear\_claims@{clear\_claims}}
+\index{clear\_claims@{clear\_claims}!bot::MapAnalyzer@{bot::MapAnalyzer}}
+\doxysubsubsection{\texorpdfstring{clear\_claims()}{clear\_claims()}}
+{\footnotesize\ttfamily \label{classbot_1_1_map_analyzer_aefc17c51aadbf0b4cb6996e92f8f7fef} 
+void bot::\+\+Map\+Analyzer::\+clear\+\_\+claims (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Nettoie la liste des cibles réservées (à appeler chaque tour). 
+
+\Hypertarget{classbot_1_1_map_analyzer_a5a383c7723507b52926a60732f6b26ec}\index{bot::MapAnalyzer@{bot::MapAnalyzer}!compute\_influence@{compute\_influence}}
+\index{compute\_influence@{compute\_influence}!bot::MapAnalyzer@{bot::MapAnalyzer}}
+\doxysubsubsection{\texorpdfstring{compute\_influence()}{compute\_influence()}}
+{\footnotesize\ttfamily \label{classbot_1_1_map_analyzer_a5a383c7723507b52926a60732f6b26ec} 
+void bot::\+\+Map\+Analyzer::\+compute\+\_\+influence (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structhlt_1_1_game}{hlt::\+\+Game}} \&}]{ref\+\_\+game}{}\end{DoxyParamCaption})}
+
+
+
+Génère la carte d\textquotesingle{}influence globale (Inspiration et Dangers). 
+
+Génère une "{}\+Heatmap"{} tactique de la carte. Valorise les zones de regroupement ennemi (Bonus d\textquotesingle{}Inspiration) et pénalise les cases adjacentes aux ennemis (Risque de collision).
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+\_\+game} & Référence au jeu actuel (pour analyser la position des ennemis). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classbot_1_1_map_analyzer_a086635e1e83b1afae1ad6c839593149f}\index{bot::MapAnalyzer@{bot::MapAnalyzer}!find\_best\_dropoff\_location@{find\_best\_dropoff\_location}}
+\index{find\_best\_dropoff\_location@{find\_best\_dropoff\_location}!bot::MapAnalyzer@{bot::MapAnalyzer}}
+\doxysubsubsection{\texorpdfstring{find\_best\_dropoff\_location()}{find\_best\_dropoff\_location()}}
+{\footnotesize\ttfamily \label{classbot_1_1_map_analyzer_a086635e1e83b1afae1ad6c839593149f} 
+std::\+pair$<$ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}}, bool $>$ bot::\+\+Map\+Analyzer::\+find\+\_\+best\+\_\+dropoff\+\_\+location (\begin{DoxyParamCaption}\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_player}{hlt::\+\+Player}} $>$ \&}]{p\+\_\+player}{, }\item[{\doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&}]{ref\+\_\+game\+\_\+map}{}\end{DoxyParamCaption}) const}
+
+
+
+Évalue la carte pour trouver l\textquotesingle{}emplacement optimal de construction d\textquotesingle{}un Dropoff. 
+
+Identifie la zone optimale pour construire une base avancée. Doit respecter la distance génétique minimale vis-\/à-\/vis des autres bases.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+player} & Le joueur construisant le dropoff. \\
+\hline
+{\em ref\+\_\+game\+\_\+map} & La carte du jeu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Une paire contenant la position idéale et un booléen indiquant si l\textquotesingle{}investissement est rentable. 
+\end{DoxyReturn}
+\Hypertarget{classbot_1_1_map_analyzer_abb00416f61dee5925cfee4194dfd92dc}\index{bot::MapAnalyzer@{bot::MapAnalyzer}!get\_area\_wealth@{get\_area\_wealth}}
+\index{get\_area\_wealth@{get\_area\_wealth}!bot::MapAnalyzer@{bot::MapAnalyzer}}
+\doxysubsubsection{\texorpdfstring{get\_area\_wealth()}{get\_area\_wealth()}}
+{\footnotesize\ttfamily \label{classbot_1_1_map_analyzer_abb00416f61dee5925cfee4194dfd92dc} 
+int bot::\+\+Map\+Analyzer::\+get\+\_\+area\+\_\+wealth (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&}]{ref\+\_\+center}{, }\item[{int}]{radius}{, }\item[{\doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&}]{ref\+\_\+game\+\_\+map}{}\end{DoxyParamCaption}) const}
+
+
+
+Calcule la quantité totale de halite dans un rayon donné autour d\textquotesingle{}un centre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+\_\+center} & Le centre de la zone de recherche. \\
+\hline
+{\em radius} & Le rayon de recherche. \\
+\hline
+{\em ref\+\_\+game\+\_\+map} & La carte pour récupérer les valeurs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La somme de Halite dans la zone. 
+\end{DoxyReturn}
+\Hypertarget{classbot_1_1_map_analyzer_a41e7e6cf522b9ba16edfee185116934c}\index{bot::MapAnalyzer@{bot::MapAnalyzer}!get\_best\_halite\_target@{get\_best\_halite\_target}}
+\index{get\_best\_halite\_target@{get\_best\_halite\_target}!bot::MapAnalyzer@{bot::MapAnalyzer}}
+\doxysubsubsection{\texorpdfstring{get\_best\_halite\_target()}{get\_best\_halite\_target()}}
+{\footnotesize\ttfamily \label{classbot_1_1_map_analyzer_a41e7e6cf522b9ba16edfee185116934c} 
+\doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} bot::\+\+Map\+Analyzer::\+get\+\_\+best\+\_\+halite\+\_\+target (\begin{DoxyParamCaption}\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_ship}{hlt::\+\+Ship}} $>$ \&}]{p\+\_\+ship}{, }\item[{\doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&}]{ref\+\_\+game\+\_\+map}{}\end{DoxyParamCaption})}
+
+
+
+Sélectionne la meilleure cible de minage pour un vaisseau donné (Legacy, remplacé par Bipartite). 
+
+Cible locale individuelle (Fallback si Bipartite échoue).
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+ship} & Le vaisseau cible. \\
+\hline
+{\em ref\+\_\+game\+\_\+map} & La carte du jeu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La position optimale à miner. 
+\end{DoxyReturn}
+\Hypertarget{classbot_1_1_map_analyzer_a383ce5a57832c5284cc2081f0fb827b4}\index{bot::MapAnalyzer@{bot::MapAnalyzer}!get\_distance\_to\_nearest\_base@{get\_distance\_to\_nearest\_base}}
+\index{get\_distance\_to\_nearest\_base@{get\_distance\_to\_nearest\_base}!bot::MapAnalyzer@{bot::MapAnalyzer}}
+\doxysubsubsection{\texorpdfstring{get\_distance\_to\_nearest\_base()}{get\_distance\_to\_nearest\_base()}}
+{\footnotesize\ttfamily \label{classbot_1_1_map_analyzer_a383ce5a57832c5284cc2081f0fb827b4} 
+int bot::\+\+Map\+Analyzer::\+get\+\_\+distance\+\_\+to\+\_\+nearest\+\_\+base (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&}]{ref\+\_\+pos}{, }\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_player}{hlt::\+\+Player}} $>$ \&}]{p\+\_\+player}{, }\item[{\doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&}]{ref\+\_\+game\+\_\+map}{}\end{DoxyParamCaption}) const}
+
+
+
+Trouve la distance vers la base ou le dropoff le plus proche appartenant au joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+\_\+pos} & La position de départ. \\
+\hline
+{\em p\+\_\+player} & Le joueur concerné. \\
+\hline
+{\em ref\+\_\+game\+\_\+map} & La carte pour le calcul de distance torique. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La distance minimale. 
+\end{DoxyReturn}
+\Hypertarget{classbot_1_1_map_analyzer_aa6a9735cc41b790ce29ec1704a413665}\index{bot::MapAnalyzer@{bot::MapAnalyzer}!get\_influence@{get\_influence}}
+\index{get\_influence@{get\_influence}!bot::MapAnalyzer@{bot::MapAnalyzer}}
+\doxysubsubsection{\texorpdfstring{get\_influence()}{get\_influence()}}
+{\footnotesize\ttfamily \label{classbot_1_1_map_analyzer_aa6a9735cc41b790ce29ec1704a413665} 
+double bot::\+\+Map\+Analyzer::\+get\+\_\+influence (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} \&}]{ref\+\_\+pos}{}\end{DoxyParamCaption}) const}
+
+
+
+Renvoie le niveau d\textquotesingle{}influence d\textquotesingle{}une case. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+\_\+pos} & La position à évaluer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La valeur d\textquotesingle{}influence (positive = bonus, négative = danger mortel). 
+\end{DoxyReturn}
+\Hypertarget{classbot_1_1_map_analyzer_aaee76ce4b46bfedb1b5d9ec00f085797}\index{bot::MapAnalyzer@{bot::MapAnalyzer}!get\_top\_global\_targets@{get\_top\_global\_targets}}
+\index{get\_top\_global\_targets@{get\_top\_global\_targets}!bot::MapAnalyzer@{bot::MapAnalyzer}}
+\doxysubsubsection{\texorpdfstring{get\_top\_global\_targets()}{get\_top\_global\_targets()}}
+{\footnotesize\ttfamily \label{classbot_1_1_map_analyzer_aaee76ce4b46bfedb1b5d9ec00f085797} 
+std::\+vector$<$ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::\+\+Position}} $>$ bot::\+\+Map\+Analyzer::\+get\+\_\+top\+\_\+global\+\_\+targets (\begin{DoxyParamCaption}\item[{int}]{count}{, }\item[{const \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&}]{ref\+\_\+game\+\_\+map}{, }\item[{const \doxymbox{\hyperlink{structhlt_1_1_game}{hlt::\+\+Game}} \&}]{ref\+\_\+game}{}\end{DoxyParamCaption}) const}
+
+
+
+Récupère les N meilleures zones de la carte absolues (Valeur brute + Influence). 
+
+Extrait les N cellules les plus rentables du jeu pour l\textquotesingle{}assignation globale.
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Le nombre de cibles désirées. \\
+\hline
+{\em ref\+\_\+game\+\_\+map} & La carte du jeu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un vecteur contenant les meilleures positions. 
+\end{DoxyReturn}
+\Hypertarget{classbot_1_1_map_analyzer_a64d5b2ee146779476c5d116bcbd141b4}\index{bot::MapAnalyzer@{bot::MapAnalyzer}!get\_total\_map\_halite@{get\_total\_map\_halite}}
+\index{get\_total\_map\_halite@{get\_total\_map\_halite}!bot::MapAnalyzer@{bot::MapAnalyzer}}
+\doxysubsubsection{\texorpdfstring{get\_total\_map\_halite()}{get\_total\_map\_halite()}}
+{\footnotesize\ttfamily \label{classbot_1_1_map_analyzer_a64d5b2ee146779476c5d116bcbd141b4} 
+int bot::\+\+Map\+Analyzer::\+get\+\_\+total\+\_\+map\+\_\+halite (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} \&}]{ref\+\_\+game\+\_\+map}{}\end{DoxyParamCaption}) const}
+
+
+
+Calcule le Halite total restant sur toute la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+\_\+game\+\_\+map} & La carte du jeu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La somme globale du Halite. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+hlt/\+\doxymbox{\hyperlink{_map_analyzer_8hpp}{Map\+Analyzer.\+hpp}}\item 
+hlt/\+\doxymbox{\hyperlink{_map_analyzer_8cpp}{Map\+Analyzer.\+cpp}}\end{DoxyCompactItemize}

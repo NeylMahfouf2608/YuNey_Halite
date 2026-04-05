@@ -1,0 +1,86 @@
+\doxysection{utils::\+Influence\+Grid Class Reference}
+\hypertarget{classutils_1_1_influence_grid}{}\label{classutils_1_1_influence_grid}\index{utils::InfluenceGrid@{utils::InfluenceGrid}}
+
+
+{\ttfamily \+\#include $<$influence\+\_\+grid.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classutils_1_1_influence_grid_ad02b455dc33a4a220bff4dd1ffdbe534}{Influence\+Grid}} (int width=0, int height=0)
+\item 
+void \doxymbox{\hyperlink{classutils_1_1_influence_grid_a1cfb35ac5e4d7f3cf52b5bd2ade0456a}{reset}} (int width, int height)
+\begin{DoxyCompactList}\small\item\em Réinitialise la grille (Zéro allocation si les dimensions sont identiques). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classutils_1_1_influence_grid_a757a93a62e739e3dd0b2299fc1c55c6a}{add\+\_\+influence}} (int x, int y, double value, bool is\+\_\+toric=true)
+\begin{DoxyCompactList}\small\item\em Ajoute un score (attrait ou danger) sur une case. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{classutils_1_1_influence_grid_a7c4c5983897411ab5b57943169effd3a}{get\+\_\+value}} (int x, int y) const
+\item 
+void \doxymbox{\hyperlink{classutils_1_1_influence_grid_a590166fbda07b734d27def1b49b9d362}{apply\+\_\+filter}} (const std::\+function$<$ double(int x, int y, double current\+\_\+value)$>$ \&filter)
+\begin{DoxyCompactList}\small\item\em Applique une transformation sur toute la carte via une Lambda. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classutils_1_1_influence_grid_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classutils_1_1_influence_grid_ad02b455dc33a4a220bff4dd1ffdbe534}\index{utils::InfluenceGrid@{utils::InfluenceGrid}!InfluenceGrid@{InfluenceGrid}}
+\index{InfluenceGrid@{InfluenceGrid}!utils::InfluenceGrid@{utils::InfluenceGrid}}
+\doxysubsubsection{\texorpdfstring{InfluenceGrid()}{InfluenceGrid()}}
+{\footnotesize\ttfamily \label{classutils_1_1_influence_grid_ad02b455dc33a4a220bff4dd1ffdbe534} 
+utils::\+\+Influence\+Grid::\+\+Influence\+Grid (\begin{DoxyParamCaption}\item[{int}]{width}{ = {\ttfamily 0}, }\item[{int}]{height}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classutils_1_1_influence_grid_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classutils_1_1_influence_grid_a757a93a62e739e3dd0b2299fc1c55c6a}\index{utils::InfluenceGrid@{utils::InfluenceGrid}!add\_influence@{add\_influence}}
+\index{add\_influence@{add\_influence}!utils::InfluenceGrid@{utils::InfluenceGrid}}
+\doxysubsubsection{\texorpdfstring{add\_influence()}{add\_influence()}}
+{\footnotesize\ttfamily \label{classutils_1_1_influence_grid_a757a93a62e739e3dd0b2299fc1c55c6a} 
+void utils::\+\+Influence\+Grid::\+add\+\_\+influence (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{double}]{value}{, }\item[{bool}]{is\+\_\+toric}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ajoute un score (attrait ou danger) sur une case. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+toric} & Gère automatiquement le wrap-\/around (la carte boucle sur elle-\/même). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classutils_1_1_influence_grid_a590166fbda07b734d27def1b49b9d362}\index{utils::InfluenceGrid@{utils::InfluenceGrid}!apply\_filter@{apply\_filter}}
+\index{apply\_filter@{apply\_filter}!utils::InfluenceGrid@{utils::InfluenceGrid}}
+\doxysubsubsection{\texorpdfstring{apply\_filter()}{apply\_filter()}}
+{\footnotesize\ttfamily \label{classutils_1_1_influence_grid_a590166fbda07b734d27def1b49b9d362} 
+void utils::\+\+Influence\+Grid::\+apply\+\_\+filter (\begin{DoxyParamCaption}\item[{const std::\+function$<$ double(int x, int y, double current\+\_\+value)$>$ \&}]{filter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Applique une transformation sur toute la carte via une Lambda. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filter} & Fonction injectée par l\textquotesingle{}appelant (ex:\+ lissage, dégradation temporelle). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classutils_1_1_influence_grid_a7c4c5983897411ab5b57943169effd3a}\index{utils::InfluenceGrid@{utils::InfluenceGrid}!get\_value@{get\_value}}
+\index{get\_value@{get\_value}!utils::InfluenceGrid@{utils::InfluenceGrid}}
+\doxysubsubsection{\texorpdfstring{get\_value()}{get\_value()}}
+{\footnotesize\ttfamily \label{classutils_1_1_influence_grid_a7c4c5983897411ab5b57943169effd3a} 
+double utils::\+\+Influence\+Grid::\+get\+\_\+value (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classutils_1_1_influence_grid_a1cfb35ac5e4d7f3cf52b5bd2ade0456a}\index{utils::InfluenceGrid@{utils::InfluenceGrid}!reset@{reset}}
+\index{reset@{reset}!utils::InfluenceGrid@{utils::InfluenceGrid}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{classutils_1_1_influence_grid_a1cfb35ac5e4d7f3cf52b5bd2ade0456a} 
+void utils::\+\+Influence\+Grid::\+reset (\begin{DoxyParamCaption}\item[{int}]{width}{, }\item[{int}]{height}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Réinitialise la grille (Zéro allocation si les dimensions sont identiques). 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+hlt/\+utils/\+\doxymbox{\hyperlink{influence__grid_8hpp}{influence\+\_\+grid.\+hpp}}\end{DoxyCompactItemize}

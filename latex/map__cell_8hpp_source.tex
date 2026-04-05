@@ -1,0 +1,42 @@
+\doxysection{map\+\_\+cell.\+hpp}
+\hypertarget{map__cell_8hpp_source}{}\label{map__cell_8hpp_source}\index{hlt/map\_cell.hpp@{hlt/map\_cell.hpp}}
+\doxymbox{\hyperlink{map__cell_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{types_8hpp}{types.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{position_8hpp}{position.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{ship_8hpp}{ship.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{dropoff_8hpp}{dropoff.hpp}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacehlt}{hlt}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structhlt_1_1_map_cell_acc8ada0cad843ee2a667cd1987933357}{MapCell}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_position}{Position}}\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_a85c6f6de0a1828c03f94ccaa70d178f2}{position}};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_a2267f2839bc219a9ce812521ac469938}{Halite}}\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_a61412709554527fecb839fdd53d67c20}{halite}};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ std::shared\_ptr<Ship>\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_abf9e7a86a718f9640161ae4ae6a61f70}{ship}};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ std::shared\_ptr<Entity>\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_a88daf93c9c518f2ad99afae6dd905973}{structure}};\ \textcolor{comment}{//\ only\ has\ dropoffs\ and\ shipyards;\ if\ id\ is\ -\/1,\ then\ it's\ a\ shipyard,\ otherwise\ it's\ a\ dropoff}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_map_cell_acc8ada0cad843ee2a667cd1987933357}{MapCell}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \doxymbox{\hyperlink{namespacehlt_a2267f2839bc219a9ce812521ac469938}{Halite}}\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_a61412709554527fecb839fdd53d67c20}{halite}})\ :}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_map_cell_a85c6f6de0a1828c03f94ccaa70d178f2}{position}}(x,\ y),}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_map_cell_a61412709554527fecb839fdd53d67c20}{halite}}(\doxymbox{\hyperlink{structhlt_1_1_map_cell_a61412709554527fecb839fdd53d67c20}{halite}})}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_a113aed11ab7a09a911faca3468f688d2}{is\_empty}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\doxymbox{\hyperlink{structhlt_1_1_map_cell_abf9e7a86a718f9640161ae4ae6a61f70}{ship}}\ \&\&\ !\doxymbox{\hyperlink{structhlt_1_1_map_cell_a88daf93c9c518f2ad99afae6dd905973}{structure}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_a1fe7ff598b3a01d1fc13206b137bd046}{is\_occupied}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{bool}\textcolor{keyword}{>}(\doxymbox{\hyperlink{structhlt_1_1_map_cell_abf9e7a86a718f9640161ae4ae6a61f70}{ship}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_aeda3e5ffa584524df01f0b1f30521939}{has\_structure}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{bool}\textcolor{keyword}{>}(\doxymbox{\hyperlink{structhlt_1_1_map_cell_a88daf93c9c518f2ad99afae6dd905973}{structure}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_a23b1d88d8d9e57238bd7a88fbe4ccb73}{mark\_unsafe}}(std::shared\_ptr<Ship>\&\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_abf9e7a86a718f9640161ae4ae6a61f70}{ship}})\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>ship\ =\ \doxymbox{\hyperlink{structhlt_1_1_map_cell_abf9e7a86a718f9640161ae4ae6a61f70}{ship}};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}

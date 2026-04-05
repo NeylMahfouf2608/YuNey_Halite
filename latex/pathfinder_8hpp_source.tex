@@ -1,0 +1,88 @@
+\doxysection{pathfinder.\+hpp}
+\hypertarget{pathfinder_8hpp_source}{}\label{pathfinder_8hpp_source}\index{hlt/utils/pathfinder.hpp@{hlt/utils/pathfinder.hpp}}
+\doxymbox{\hyperlink{pathfinder_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceutils}{utils}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ StateType>}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structutils_1_1_a_star_node}{AStarNode}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ StateType\ \doxymbox{\hyperlink{structutils_1_1_a_star_node_ae03698578ca2e6c49aa34a9acabcf606}{state}};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structutils_1_1_a_star_node_a0dcbc607c40d7aa271080f1611d3f888}{g\_score}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structutils_1_1_a_star_node_aec60ae21bffa5273c3bd6c11e0ea90c8}{f\_score}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tie-\/breaker\ :\ En\ cas\ d'égalité sur\ le\ coût total\ (f\_score),\ on\ privilégie\ }}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ le\ nœud\ qui\ a\ déjà\ parcouru\ le\ plus\ de\ chemin\ (g\_score\ élevé).}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cela\ empêche\ A*\ d'explorer\ inutilement\ en\ largeur.}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structutils_1_1_a_star_node_a36a4690a3c75555d4b23daf212fe7d72}{operator>}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structutils_1_1_a_star_node}{AStarNode}}\&\ ref\_other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{structutils_1_1_a_star_node_aec60ae21bffa5273c3bd6c11e0ea90c8}{f\_score}}\ ==\ ref\_other.\doxymbox{\hyperlink{structutils_1_1_a_star_node_aec60ae21bffa5273c3bd6c11e0ea90c8}{f\_score}})\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{structutils_1_1_a_star_node_a0dcbc607c40d7aa271080f1611d3f888}{g\_score}}\ <\ ref\_other.\doxymbox{\hyperlink{structutils_1_1_a_star_node_a0dcbc607c40d7aa271080f1611d3f888}{g\_score}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{structutils_1_1_a_star_node_aec60ae21bffa5273c3bd6c11e0ea90c8}{f\_score}}\ >\ ref\_other.\doxymbox{\hyperlink{structutils_1_1_a_star_node_aec60ae21bffa5273c3bd6c11e0ea90c8}{f\_score}};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ StateType,\ \textcolor{keyword}{typename}\ HashFunc\ =\ std::hash<StateType>>}
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<StateType>\ \doxymbox{\hyperlink{namespaceutils_a54d1397ab44438fcf1710bc6c4a838d1}{find\_path}}(}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ StateType\&\ ref\_start,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ StateType\&\ ref\_goal,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ StateType\&,\ std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ StateType\&,\ \textcolor{keywordtype}{int})>)>\ get\_neighbors,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{int}(\textcolor{keyword}{const}\ StateType\&,\ \textcolor{keyword}{const}\ StateType\&)>\ get\_heuristic)}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ thread\_local\ conserve\ l'optimisation\ (ne\ pas\ réallouer\ la\ map\ à chaque\ appel)}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ tout\ en\ empêchant\ les\ crashs\ (Race\ Conditions)\ si\ le\ bot\ multithread\ ses\ déplacements.}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assurément\ très overkill.\ Motivé par\ le\ multithreading\ du\ généticien.}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{thread\_local}\ std::unordered\_map<StateType,\ StateType,\ HashFunc>\ s\_came\_from;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{thread\_local}\ std::unordered\_map<StateType,\ int,\ HashFunc>\ s\_g\_score;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ s\_came\_from.clear();}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ s\_g\_score.clear();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::priority\_queue<AStarNode<StateType>,\ std::vector<AStarNode<StateType>>,\ std::greater<AStarNode<StateType>>>\ open\_set;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ open\_set.push(\{\ ref\_start,\ 0,\ get\_heuristic(ref\_start,\ ref\_goal)\ \});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ s\_g\_score[ref\_start]\ =\ 0;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!open\_set.empty())\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ StateType\ current\ =\ open\_set.top().state;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ open\_set.pop();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\ ==\ ref\_goal)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Appel\ de\ la\ lambda\ d'exploration.}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pour\ chaque\ voisin\ valide\ trouvé, la\ lambda\ interne\ ci-\/dessous\ est\ exécutée.}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ get\_neighbors(current,\ [\&](\textcolor{keyword}{const}\ StateType\&\ next,\ \textcolor{keywordtype}{int}\ move\_cost)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tentative\_g\_score\ =\ s\_g\_score[current]\ +\ move\_cost;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s\_g\_score.find(next)\ ==\ s\_g\_score.end()\ ||\ tentative\_g\_score\ <\ s\_g\_score[next])\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\_came\_from[next]\ =\ current;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\_g\_score[next]\ =\ tentative\_g\_score;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ f\_score\ =\ tentative\_g\_score\ +\ get\_heuristic(next,\ ref\_goal);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ open\_set.push(\{\ next,\ tentative\_g\_score,\ f\_score\ \});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ std::vector<StateType>\ path;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cible\ inaccessible\ (bloquée par\ d'autres\ vaisseaux\ ou\ murs)}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s\_came\_from.find(ref\_goal)\ ==\ s\_came\_from.end())\ \textcolor{keywordflow}{return}\ path;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reconstruction\ du\ chemin\ à l'envers}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ StateType\ current\_trace\ =\ ref\_goal;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current\_trace\ !=\ ref\_start)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ path.push\_back(current\_trace);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ current\_trace\ =\ s\_came\_from[current\_trace];}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ std::reverse(path.begin(),\ path.end());}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ path;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}

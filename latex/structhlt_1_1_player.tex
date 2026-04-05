@@ -1,0 +1,100 @@
+\doxysection{hlt::\+Player Struct Reference}
+\hypertarget{structhlt_1_1_player}{}\label{structhlt_1_1_player}\index{hlt::Player@{hlt::Player}}
+
+
+{\ttfamily \+\#include $<$player.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structhlt_1_1_player_a82c0ba37f9fd408ec8b03e30263e127e}{Player}} (\doxymbox{\hyperlink{namespacehlt_afc77df762a62bd681029b3beaafe71dd}{Player\+Id}} player\+\_\+id, int shipyard\+\_\+x, int shipyard\+\_\+y)
+\item 
+void \doxymbox{\hyperlink{structhlt_1_1_player_a5973d2cc50de17b4148b323752b42756}{\+\_\+update}} (int num\+\_\+ships, int num\+\_\+dropoffs, \doxymbox{\hyperlink{namespacehlt_a2267f2839bc219a9ce812521ac469938}{Halite}} \doxymbox{\hyperlink{structhlt_1_1_player_aaee4f57de686113dd4dbb5d2f4a0dcba}{halite}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_player_a82c0ba37f9fd408ec8b03e30263e127e}{Player}} $>$ \doxymbox{\hyperlink{structhlt_1_1_player_a724aba61f76b956dd4e036a004ac4fe2}{\+\_\+generate}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{namespacehlt_afc77df762a62bd681029b3beaafe71dd}{Player\+Id}} \doxymbox{\hyperlink{structhlt_1_1_player_ad510f2d57da38dbec95c267484dedc17}{id}}
+\item 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_shipyard}{Shipyard}} $>$ \doxymbox{\hyperlink{structhlt_1_1_player_aa578597bb3d33517c1ca6ec69beae823}{shipyard}}
+\item 
+\doxymbox{\hyperlink{namespacehlt_a2267f2839bc219a9ce812521ac469938}{Halite}} \doxymbox{\hyperlink{structhlt_1_1_player_aaee4f57de686113dd4dbb5d2f4a0dcba}{halite}}
+\item 
+std::\+unordered\+\_\+map$<$ \doxymbox{\hyperlink{namespacehlt_a0db960c773276145ebf87316266df04d}{Entity\+Id}}, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_ship}{Ship}} $>$ $>$ \doxymbox{\hyperlink{structhlt_1_1_player_a41eadd82eea0a16abd424f253237857d}{ships}}
+\item 
+std::\+unordered\+\_\+map$<$ \doxymbox{\hyperlink{namespacehlt_a0db960c773276145ebf87316266df04d}{Entity\+Id}}, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_dropoff}{Dropoff}} $>$ $>$ \doxymbox{\hyperlink{structhlt_1_1_player_a79fb8d3d5ce346ad1ed5f03951c9bac8}{dropoffs}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{structhlt_1_1_player_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structhlt_1_1_player_a82c0ba37f9fd408ec8b03e30263e127e}\index{hlt::Player@{hlt::Player}!Player@{Player}}
+\index{Player@{Player}!hlt::Player@{hlt::Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_player_a82c0ba37f9fd408ec8b03e30263e127e} 
+hlt::\+\+Player::\+\+Player (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespacehlt_afc77df762a62bd681029b3beaafe71dd}{Player\+Id}}}]{player\+\_\+id}{, }\item[{int}]{shipyard\+\_\+x}{, }\item[{int}]{shipyard\+\_\+y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{structhlt_1_1_player_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structhlt_1_1_player_a724aba61f76b956dd4e036a004ac4fe2}\index{hlt::Player@{hlt::Player}!\_generate@{\_generate}}
+\index{\_generate@{\_generate}!hlt::Player@{hlt::Player}}
+\doxysubsubsection{\texorpdfstring{\_generate()}{\_generate()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_player_a724aba61f76b956dd4e036a004ac4fe2} 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_player}{hlt::\+\+Player}} $>$ hlt::\+\+Player::\+\+\_\+generate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{structhlt_1_1_player_a5973d2cc50de17b4148b323752b42756}\index{hlt::Player@{hlt::Player}!\_update@{\_update}}
+\index{\_update@{\_update}!hlt::Player@{hlt::Player}}
+\doxysubsubsection{\texorpdfstring{\_update()}{\_update()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_player_a5973d2cc50de17b4148b323752b42756} 
+void hlt::\+\+Player::\+\+\_\+update (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+ships}{, }\item[{int}]{num\+\_\+dropoffs}{, }\item[{\doxymbox{\hyperlink{namespacehlt_a2267f2839bc219a9ce812521ac469938}{Halite}}}]{halite}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structhlt_1_1_player_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structhlt_1_1_player_a79fb8d3d5ce346ad1ed5f03951c9bac8}\index{hlt::Player@{hlt::Player}!dropoffs@{dropoffs}}
+\index{dropoffs@{dropoffs}!hlt::Player@{hlt::Player}}
+\doxysubsubsection{\texorpdfstring{dropoffs}{dropoffs}}
+{\footnotesize\ttfamily \label{structhlt_1_1_player_a79fb8d3d5ce346ad1ed5f03951c9bac8} 
+std::\+unordered\+\_\+map$<$\doxymbox{\hyperlink{namespacehlt_a0db960c773276145ebf87316266df04d}{Entity\+Id}}, std::\+shared\+\_\+ptr$<$\doxymbox{\hyperlink{structhlt_1_1_dropoff}{Dropoff}}$>$ $>$ hlt::\+\+Player::\+dropoffs}
+
+\Hypertarget{structhlt_1_1_player_aaee4f57de686113dd4dbb5d2f4a0dcba}\index{hlt::Player@{hlt::Player}!halite@{halite}}
+\index{halite@{halite}!hlt::Player@{hlt::Player}}
+\doxysubsubsection{\texorpdfstring{halite}{halite}}
+{\footnotesize\ttfamily \label{structhlt_1_1_player_aaee4f57de686113dd4dbb5d2f4a0dcba} 
+\doxymbox{\hyperlink{namespacehlt_a2267f2839bc219a9ce812521ac469938}{Halite}} hlt::\+\+Player::\+halite}
+
+\Hypertarget{structhlt_1_1_player_ad510f2d57da38dbec95c267484dedc17}\index{hlt::Player@{hlt::Player}!id@{id}}
+\index{id@{id}!hlt::Player@{hlt::Player}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{structhlt_1_1_player_ad510f2d57da38dbec95c267484dedc17} 
+\doxymbox{\hyperlink{namespacehlt_afc77df762a62bd681029b3beaafe71dd}{Player\+Id}} hlt::\+\+Player::\+id}
+
+\Hypertarget{structhlt_1_1_player_a41eadd82eea0a16abd424f253237857d}\index{hlt::Player@{hlt::Player}!ships@{ships}}
+\index{ships@{ships}!hlt::Player@{hlt::Player}}
+\doxysubsubsection{\texorpdfstring{ships}{ships}}
+{\footnotesize\ttfamily \label{structhlt_1_1_player_a41eadd82eea0a16abd424f253237857d} 
+std::\+unordered\+\_\+map$<$\doxymbox{\hyperlink{namespacehlt_a0db960c773276145ebf87316266df04d}{Entity\+Id}}, std::\+shared\+\_\+ptr$<$\doxymbox{\hyperlink{structhlt_1_1_ship}{Ship}}$>$ $>$ hlt::\+\+Player::\+ships}
+
+\Hypertarget{structhlt_1_1_player_aa578597bb3d33517c1ca6ec69beae823}\index{hlt::Player@{hlt::Player}!shipyard@{shipyard}}
+\index{shipyard@{shipyard}!hlt::Player@{hlt::Player}}
+\doxysubsubsection{\texorpdfstring{shipyard}{shipyard}}
+{\footnotesize\ttfamily \label{structhlt_1_1_player_aa578597bb3d33517c1ca6ec69beae823} 
+std::\+shared\+\_\+ptr$<$\doxymbox{\hyperlink{structhlt_1_1_shipyard}{Shipyard}}$>$ hlt::\+\+Player::\+shipyard}
+
+
+
+The documentation for this struct was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+hlt/\+\doxymbox{\hyperlink{player_8hpp}{player.\+hpp}}\item 
+hlt/\+\doxymbox{\hyperlink{player_8cpp}{player.\+cpp}}\end{DoxyCompactItemize}

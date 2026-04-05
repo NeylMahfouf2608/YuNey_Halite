@@ -1,0 +1,21 @@
+\doxysection{hlt/\+utils/\+math.hpp File Reference}
+\hypertarget{math_8hpp}{}\label{math_8hpp}\index{hlt/utils/math.hpp@{hlt/utils/math.hpp}}
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+{\ttfamily \+\#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \+\#include $<$unordered\+\_\+set$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structutils_1_1_edge}{utils::\+\+Edge$<$ Entity\+Type, Target\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em Représente un lien pondéré entre une entité et une cible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespaceutils}{utils}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Entity\+Type, typename Target\+Type$>$ }\\std::\+unordered\+\_\+map$<$ Entity\+Type, Target\+Type $>$ \doxymbox{\hyperlink{namespaceutils_aee34a3fd9be7bd830e6ad37f8bf5816f}{utils::\+solve\+\_\+greedy\+\_\+assignment}} (std::\+vector$<$ \doxymbox{\hyperlink{structutils_1_1_edge}{Edge}}$<$ Entity\+Type, Target\+Type $>$ $>$ \&ref\+\_\+edges)
+\begin{DoxyCompactList}\small\item\em Résout le problème d\textquotesingle{}affectation biparti (Bipartite Matching) de manière gloutonne optimisée. \end{DoxyCompactList}\end{DoxyCompactItemize}

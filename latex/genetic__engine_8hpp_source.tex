@@ -1,0 +1,127 @@
+\doxysection{genetic\+\_\+engine.\+hpp}
+\hypertarget{genetic__engine_8hpp_source}{}\label{genetic__engine_8hpp_source}\index{hlt/utils/genetic\_engine.hpp@{hlt/utils/genetic\_engine.hpp}}
+\doxymbox{\hyperlink{genetic__engine_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <future>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceutils}{utils}}\ \{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::vector<int>\ \doxymbox{\hyperlink{structutils_1_1_genome_a8d455d0e25fd7726bc77889262e664b9}{genes}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structutils_1_1_genome_a535eaec7a28338151561153bc0a741d1}{fitness}}\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classutils_1_1_genetic_engine_af9e9ef245d110f64bde5cc5bb56756a2}{GeneticEngine}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\_population\_size;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\_generations;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ std::vector<std::pair<int,\ int>>\ m\_gene\_bounds;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::function<int(\textcolor{keyword}{const}\ std::vector<int>\&,\ \textcolor{keywordtype}{int})>\ m\_evaluate\_func;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::mt19937\ m\_rng;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ random\_int(\textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ std::uniform\_int\_distribution<int>\ dist(min,\ max);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dist(m\_rng);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}\ generate\_random\_genome()\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}\ g;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ g.\doxymbox{\hyperlink{structutils_1_1_genome_a8d455d0e25fd7726bc77889262e664b9}{genes}}.reserve(m\_gene\_bounds.size());}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ bounds\ :\ m\_gene\_bounds)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\doxymbox{\hyperlink{structutils_1_1_genome_a8d455d0e25fd7726bc77889262e664b9}{genes}}.push\_back(random\_int(bounds.first,\ bounds.second));}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ g;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}\ crossover\_and\_mutate(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}\&\ p1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}\&\ p2)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}\ child;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ child.\doxymbox{\hyperlink{structutils_1_1_genome_a8d455d0e25fd7726bc77889262e664b9}{genes}}.reserve(m\_gene\_bounds.size());}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ m\_gene\_bounds.size();\ ++i)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Croisement\ uniforme\ (50/50\ d'hériter\ de\ l'un\ ou\ l'autre\ parent)}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ inherited\_gene\ =\ (random\_int(0,\ 1)\ ==\ 0)\ ?\ p1.\doxymbox{\hyperlink{structutils_1_1_genome_a8d455d0e25fd7726bc77889262e664b9}{genes}}[i]\ :\ p2.\doxymbox{\hyperlink{structutils_1_1_genome_a8d455d0e25fd7726bc77889262e664b9}{genes}}[i];}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mutation\ de\ +/-\/\ 5\%\ (10\%\ de\ chance\ d'occurrence)}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (random\_int(1,\ 100)\ <=\ 10)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ variation\ =\ 1.0\ +\ (random\_int(-\/5,\ 5)\ /\ 100.0);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mutated\_val\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(inherited\_gene\ *\ variation);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Contrainte\ stricte\ dans\ les\ limites\ définies\ (utilise\ min/max\ plutot\ que\ clamp\ pour\ ne\ pas\ avoir\ à changer\ la\ version\ de\ C++\ (bizarrement\ je\ peux\ utiliser\ les\ lambda\ et\ les\ std::function\ par\ contre)}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mutated\_val\ =\ std::max(m\_gene\_bounds[i].first,\ std::min(m\_gene\_bounds[i].second,\ mutated\_val));}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ child.\doxymbox{\hyperlink{structutils_1_1_genome_a8d455d0e25fd7726bc77889262e664b9}{genes}}.push\_back(mutated\_val);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ child.\doxymbox{\hyperlink{structutils_1_1_genome_a8d455d0e25fd7726bc77889262e664b9}{genes}}.push\_back(inherited\_gene);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ child;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classutils_1_1_genetic_engine_af9e9ef245d110f64bde5cc5bb56756a2}{GeneticEngine}}(\textcolor{keywordtype}{int}\ pop\_size,\ \textcolor{keywordtype}{int}\ gens,\ \textcolor{keyword}{const}\ std::vector<std::pair<int,\ int>>\&\ bounds,\ std::function<\textcolor{keywordtype}{int}(\textcolor{keyword}{const}\ std::vector<int>\&,\ \textcolor{keywordtype}{int})>\ eval\_func)}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ :\ m\_population\_size(pop\_size),\ m\_generations(gens),\ m\_gene\_bounds(bounds),\ m\_evaluate\_func(eval\_func)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ m\_rng\ =\ std::mt19937(rd());}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}\ \doxymbox{\hyperlink{classutils_1_1_genetic_engine_a18e73831bcd409aabd578a41702237cc}{run}}()\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Genome>\ population(m\_population\_size);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m\_population\_size;\ ++i)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ population[i]\ =\ generate\_random\_genome();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ gen\ =\ 0;\ gen\ <\ m\_generations;\ ++gen)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n===\ GENERATION\ "{}}\ <<\ gen\ +\ 1\ <<\ \textcolor{stringliteral}{"{}\ ===\(\backslash\)n"{}};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::future<int>>\ futures;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Évaluation\ asynchrone\ pour\ maximiser\ l'usage\ CPU}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m\_population\_size;\ ++i)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ futures.push\_back(std::async(std::launch::async,\ m\_evaluate\_func,\ population[i].genes,\ i\ +\ 1));}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m\_population\_size;\ ++i)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ population[i].fitness\ =\ futures[i].get();}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tri\ par\ élitisme\ (décroissant)}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::sort(population.begin(),\ population.end(),\ [](\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}\&\ a,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}\&\ b)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ a.fitness\ >\ b.fitness;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//affichage\ bugué par\ le\ multithreading,\ rigolo\ donc\ je\ laisse}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}>>\ Meilleur\ ADN:\ Score\ "{}}\ <<\ population[0].fitness\ <<\ \textcolor{stringliteral}{"{}\ |\ Genes:\ ["{}};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ population[0].genes.size();\ ++i)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ population[0].genes[i]\ <<\ (i\ <\ population[0].genes.size()\ -\/\ 1\ ?\ \textcolor{stringliteral}{"{},\ "{}}\ :\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Genome>\ next\_generation;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ next\_generation.reserve(m\_population\_size);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Conservation\ intacte\ des\ 4\ meilleurs\ individus}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ ++i)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ next\_generation.push\_back(population[i]);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reproduction\ pour\ repeupler\ la\ génération}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (next\_generation.size()\ <\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(m\_population\_size))\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p1\_idx\ =\ random\_int(0,\ 3);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p2\_idx\ =\ random\_int(0,\ 3);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ next\_generation.push\_back(crossover\_and\_mutate(population[p1\_idx],\ population[p2\_idx]));}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ population\ =\ std::move(next\_generation);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ population[0];}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \};}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}

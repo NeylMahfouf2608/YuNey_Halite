@@ -1,0 +1,42 @@
+\doxysection{ship.\+hpp}
+\hypertarget{ship_8hpp_source}{}\label{ship_8hpp_source}\index{hlt/ship.hpp@{hlt/ship.hpp}}
+\doxymbox{\hyperlink{ship_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{entity_8hpp}{entity.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{constants_8hpp}{constants.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{command_8hpp}{command.hpp}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacehlt}{hlt}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structhlt_1_1_ship_a3a9c40789b0e1a23d11f457d5ef267f8}{Ship}}\ :\ \doxymbox{\hyperlink{structhlt_1_1_entity_acdfa4f2510d62181f8726eb21f3a391c}{Entity}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_a2267f2839bc219a9ce812521ac469938}{Halite}}\ \doxymbox{\hyperlink{structhlt_1_1_ship_aa3c6ca942bc44ceeb15259944c6b7112}{halite}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_ship_a3a9c40789b0e1a23d11f457d5ef267f8}{Ship}}(\doxymbox{\hyperlink{namespacehlt_afc77df762a62bd681029b3beaafe71dd}{PlayerId}}\ player\_id,\ \doxymbox{\hyperlink{namespacehlt_a0db960c773276145ebf87316266df04d}{EntityId}}\ ship\_id,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \doxymbox{\hyperlink{namespacehlt_a2267f2839bc219a9ce812521ac469938}{Halite}}\ \doxymbox{\hyperlink{structhlt_1_1_ship_aa3c6ca942bc44ceeb15259944c6b7112}{halite}})\ :}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_entity_acdfa4f2510d62181f8726eb21f3a391c}{Entity}}(player\_id,\ ship\_id,\ x,\ y),}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structhlt_1_1_ship_aa3c6ca942bc44ceeb15259944c6b7112}{halite}}(\doxymbox{\hyperlink{structhlt_1_1_ship_aa3c6ca942bc44ceeb15259944c6b7112}{halite}})}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structhlt_1_1_ship_a8195085e81347784aa4f693941e8bccc}{is\_full}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{structhlt_1_1_ship_aa3c6ca942bc44ceeb15259944c6b7112}{halite}}\ >=\ \doxymbox{\hyperlink{namespacehlt_1_1constants_aa411121cfd919a746884df6475840f55}{constants::MAX\_HALITE}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_ab15a59c27019456130c9677b4ed42006}{Command}}\ \doxymbox{\hyperlink{structhlt_1_1_ship_a6c6ae3527f15fdd770a3c1f86091b3bf}{make\_dropoff}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespacehlt_1_1command_a34667da1def0442d4b0a74149a545357}{hlt::command::transform\_ship\_into\_dropoff\_site}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_ab15a59c27019456130c9677b4ed42006}{Command}}\ \doxymbox{\hyperlink{structhlt_1_1_ship_a93b8a70a76bffe6d15c056aac0d3ee15}{move}}(\doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{Direction}}\ direction)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespacehlt_1_1command_a7e433f5b9e32a01783fd1cd942ba6ba9}{hlt::command::move}}(\textcolor{keywordtype}{id},\ direction);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_ab15a59c27019456130c9677b4ed42006}{Command}}\ \doxymbox{\hyperlink{structhlt_1_1_ship_ad59284bfb1727af31be15d7aac2164a8}{stay\_still}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespacehlt_1_1command_a7e433f5b9e32a01783fd1cd942ba6ba9}{hlt::command::move}}(\textcolor{keywordtype}{id},\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a8b572d218013b9626d59e6a2b38f18b6}{Direction::STILL}});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<Ship>\ \doxymbox{\hyperlink{structhlt_1_1_ship_afe982230662b736a672d58b257b56a51}{\_generate}}(\doxymbox{\hyperlink{namespacehlt_afc77df762a62bd681029b3beaafe71dd}{PlayerId}}\ player\_id);}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}

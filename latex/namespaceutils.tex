@@ -1,0 +1,69 @@
+\doxysection{utils Namespace Reference}
+\hypertarget{namespaceutils}{}\label{namespaceutils}\index{utils@{utils}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structutils_1_1_genome}{Genome}}
+\item 
+class \doxymbox{\hyperlink{classutils_1_1_genetic_engine}{Genetic\+Engine}}
+\item 
+class \doxymbox{\hyperlink{classutils_1_1_influence_grid}{Influence\+Grid}}
+\item 
+struct \doxymbox{\hyperlink{structutils_1_1_edge}{Edge}}
+\begin{DoxyCompactList}\small\item\em Représente un lien pondéré entre une entité et une cible. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structutils_1_1_a_star_node}{AStar\+Node}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Entity\+Type, typename Target\+Type$>$ }\\std::\+unordered\+\_\+map$<$ Entity\+Type, Target\+Type $>$ \doxymbox{\hyperlink{namespaceutils_aee34a3fd9be7bd830e6ad37f8bf5816f}{solve\+\_\+greedy\+\_\+assignment}} (std::\+vector$<$ \doxymbox{\hyperlink{structutils_1_1_edge}{Edge}}$<$ Entity\+Type, Target\+Type $>$ $>$ \&ref\+\_\+edges)
+\begin{DoxyCompactList}\small\item\em Résout le problème d\textquotesingle{}affectation biparti (Bipartite Matching) de manière gloutonne optimisée. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename State\+Type, typename Hash\+Func = std::\+hash$<$\+State\+Type$>$$>$ }\\std::\+vector$<$ State\+Type $>$ \doxymbox{\hyperlink{namespaceutils_a54d1397ab44438fcf1710bc6c4a838d1}{find\+\_\+path}} (const State\+Type \&ref\+\_\+start, const State\+Type \&ref\+\_\+goal, std::\+function$<$ void(const State\+Type \&, std::\+function$<$ void(const State\+Type \&, int)$>$)$>$ get\+\_\+neighbors, std::\+function$<$ int(const State\+Type \&, const State\+Type \&)$>$ get\+\_\+heuristic)
+\begin{DoxyCompactList}\small\item\em Trouve le chemin optimal via A\texorpdfstring{$\ast$}{*} avec injection de dépendances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceutils_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceutils_a54d1397ab44438fcf1710bc6c4a838d1}\index{utils@{utils}!find\_path@{find\_path}}
+\index{find\_path@{find\_path}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{find\_path()}{find\_path()}}
+{\footnotesize\ttfamily \label{namespaceutils_a54d1397ab44438fcf1710bc6c4a838d1} 
+template$<$typename State\+Type, typename Hash\+Func = std::\+hash$<$\+State\+Type$>$$>$ \\
+std::\+vector$<$ State\+Type $>$ utils::\+find\+\_\+path (\begin{DoxyParamCaption}\item[{const State\+Type \&}]{ref\+\_\+start}{, }\item[{const State\+Type \&}]{ref\+\_\+goal}{, }\item[{std::\+function$<$ void(const State\+Type \&, std::\+function$<$ void(const State\+Type \&, int)$>$)$>$}]{get\+\_\+neighbors}{, }\item[{std::\+function$<$ int(const State\+Type \&, const State\+Type \&)$>$}]{get\+\_\+heuristic}{}\end{DoxyParamCaption})}
+
+
+
+Trouve le chemin optimal via A\texorpdfstring{$\ast$}{*} avec injection de dépendances. 
+
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+POURQUOI UTILISER std::\+function ET DES LAMBDAS ? Cet algorithme est "{}agnostique"{} :\+ il ne connaît ni les règles de Halite, ni la carte. Il délègue l\textquotesingle{}évaluation du terrain au code appelant via ces fonctions :\+
+\begin{DoxyItemize}
+\item 1. L\textquotesingle{}Heuristique (get\+\_\+heuristic) :\+ Permet de changer la façon dont la distance est estimée (ex:\+ distance de Manhattan) sans toucher au cœur de l\textquotesingle{}algorithme.
+\item 2. Le Callback "{}\+Zéro Allocation"{} (get\+\_\+neighbors) :\+ Habituellement, une fonction {\ttfamily get\+\_\+neighbors} retourne un {\ttfamily std::\+vector\texorpdfstring{$<$}{<}Voisins\texorpdfstring{$>$}{>}}. Cela force la création et la destruction d\textquotesingle{}un tableau à chaque case explorée. Ici, {\ttfamily get\+\_\+neighbors} prend une autre fonction en paramètre. Dès qu\textquotesingle{}elle trouve un voisin valide, elle l\textquotesingle{}injecte DIRECTEMENT dans le moteur A\texorpdfstring{$\ast$}{*}, sans tableau intermédiaire. 
+\end{DoxyItemize}\Hypertarget{namespaceutils_aee34a3fd9be7bd830e6ad37f8bf5816f}\index{utils@{utils}!solve\_greedy\_assignment@{solve\_greedy\_assignment}}
+\index{solve\_greedy\_assignment@{solve\_greedy\_assignment}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{solve\_greedy\_assignment()}{solve\_greedy\_assignment()}}
+{\footnotesize\ttfamily \label{namespaceutils_aee34a3fd9be7bd830e6ad37f8bf5816f} 
+template$<$typename Entity\+Type, typename Target\+Type$>$ \\
+std::\+unordered\+\_\+map$<$ Entity\+Type, Target\+Type $>$ utils::\+solve\+\_\+greedy\+\_\+assignment (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{structutils_1_1_edge}{Edge}}$<$ Entity\+Type, Target\+Type $>$ $>$ \&}]{ref\+\_\+edges}{}\end{DoxyParamCaption})}
+
+
+
+Résout le problème d\textquotesingle{}affectation biparti (Bipartite Matching) de manière gloutonne optimisée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+\_\+edges} & Liste de tous les liens (Edges) possibles entre entités et cibles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Une table de hachage associant chaque entité à sa meilleure cible disponible. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Complexité :\+ O(\+N log N) dominée par le tri des arêtes. 
+\end{DoxyNote}

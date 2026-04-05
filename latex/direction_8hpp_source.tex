@@ -1,0 +1,48 @@
+\doxysection{direction.\+hpp}
+\hypertarget{direction_8hpp_source}{}\label{direction_8hpp_source}\index{hlt/direction.hpp@{hlt/direction.hpp}}
+\doxymbox{\hyperlink{direction_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{log_8hpp}{log.hpp}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacehlt}{hlt}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{Direction}}\ :\ \textcolor{keywordtype}{char}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a2bf8f791695c70efa9c14e6f1c326403}{NORTH}}\ =\ \textcolor{charliteral}{'n'},}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a45ac78bf3d4882ac520f4e7fb08d55c5}{EAST}}\ =\ \textcolor{charliteral}{'e'},}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a96e44fa82e5a5263fb92337be422d3eb}{SOUTH}}\ =\ \textcolor{charliteral}{'s'},}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a83c9f5692281bf59471b13dfddb3af91}{WEST}}\ =\ \textcolor{charliteral}{'w'},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a8b572d218013b9626d59e6a2b38f18b6}{STILL}}\ =\ \textcolor{charliteral}{'o'},}
+\DoxyCodeLine{00015\ \ \ \ \ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::array<Direction,\ 4>\ ALL\_CARDINALS\ =\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \{\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a2bf8f791695c70efa9c14e6f1c326403}{Direction::NORTH}},\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a96e44fa82e5a5263fb92337be422d3eb}{Direction::SOUTH}},\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a45ac78bf3d4882ac520f4e7fb08d55c5}{Direction::EAST}},\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a83c9f5692281bf59471b13dfddb3af91}{Direction::WEST}}\ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{Direction}}\ invert\_direction(\doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{Direction}}\ direction)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (direction)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a2bf8f791695c70efa9c14e6f1c326403}{Direction::NORTH}}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a96e44fa82e5a5263fb92337be422d3eb}{Direction::SOUTH}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a96e44fa82e5a5263fb92337be422d3eb}{Direction::SOUTH}}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a2bf8f791695c70efa9c14e6f1c326403}{Direction::NORTH}};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a45ac78bf3d4882ac520f4e7fb08d55c5}{Direction::EAST}}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a83c9f5692281bf59471b13dfddb3af91}{Direction::WEST}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a83c9f5692281bf59471b13dfddb3af91}{Direction::WEST}}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a45ac78bf3d4882ac520f4e7fb08d55c5}{Direction::EAST}};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a8b572d218013b9626d59e6a2b38f18b6}{Direction::STILL}}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0a8b572d218013b9626d59e6a2b38f18b6}{Direction::STILL}};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_1_1log_accfe13ad9a70d315e03c0b09730a346f}{log::log}}(std::string(\textcolor{stringliteral}{"{}Error:\ invert\_direction:\ unknown\ direction\ "{}})\ +\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(direction));}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ std::ostream\&\ operator<<(std::ostream\&\ out,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{Direction}}\&\ direction)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ static\_cast<char>(direction);}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}

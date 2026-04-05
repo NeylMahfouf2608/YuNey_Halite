@@ -1,0 +1,48 @@
+\doxysection{math.\+hpp}
+\hypertarget{math_8hpp_source}{}\label{math_8hpp_source}\index{hlt/utils/math.hpp@{hlt/utils/math.hpp}}
+\doxymbox{\hyperlink{math_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceutils}{utils}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ EntityType,\ \textcolor{keyword}{typename}\ TargetType>}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structutils_1_1_edge}{Edge}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ EntityType\ \doxymbox{\hyperlink{structutils_1_1_edge_a24ecbb28f9206f95970741359f9e3212}{source\_id}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ TargetType\ \doxymbox{\hyperlink{structutils_1_1_edge_ab3941c0bda47f3ceea5a0e56fbbc68ad}{target}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{structutils_1_1_edge_ac59f919b16da02d701fed459e71219d9}{score}};}
+\DoxyCodeLine{00025\ \ \ \ \ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ EntityType,\ \textcolor{keyword}{typename}\ TargetType>}
+\DoxyCodeLine{00034\ \ \ \ \ std::unordered\_map<EntityType,\ TargetType>\ \doxymbox{\hyperlink{namespaceutils_aee34a3fd9be7bd830e6ad37f8bf5816f}{solve\_greedy\_assignment}}(std::vector<\doxymbox{\hyperlink{structutils_1_1_edge}{Edge<EntityType,\ TargetType>}}>\&\ ref\_edges)\ \{}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tri\ décroissant\ par\ score}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ std::sort(ref\_edges.begin(),\ ref\_edges.end(),\ [](\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structutils_1_1_edge}{Edge<EntityType,\ TargetType>}}\&\ a,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structutils_1_1_edge}{Edge<EntityType,\ TargetType>}}\&\ b)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ return\ a.score\ >\ b.score;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ std::unordered\_map<EntityType,\ TargetType>\ final\_assignments;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::unordered\_set<TargetType>\ taken\_targets;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ std::unordered\_set<EntityType>\ assigned\_entities;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ edge\ :\ ref\_edges)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ l'entité n'a\ pas\ encore\ de\ mission\ ET\ que\ la\ cible\ est\ libre}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (assigned\_entities.find(edge.source\_id)\ ==\ assigned\_entities.end()\ \&\&}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ taken\_targets.find(edge.target)\ ==\ taken\_targets.end())\ \{}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ final\_assignments[edge.source\_id]\ =\ edge.target;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assigned\_entities.insert(edge.source\_id);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ taken\_targets.insert(edge.target);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ final\_assignments;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Utilisateur\Desktop\Halite-III\starter_kits\C++\trainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Utilisateur\Desktop\Halite-III\starter_kits\C++\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2BBC9DF5-4BDD-390B-A9D6-59BEEA5AB515}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

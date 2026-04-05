@@ -1,0 +1,56 @@
+\doxysection{navigator.\+hpp}
+\hypertarget{navigator_8hpp_source}{}\label{navigator_8hpp_source}\index{hlt/navigator.hpp@{hlt/navigator.hpp}}
+\doxymbox{\hyperlink{navigator_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{game__map_8hpp}{game\_map.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{ship_8hpp}{ship.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{player_8hpp}{player.hpp}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_map_analyzer_8hpp}{MapAnalyzer.hpp}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{pathfinder_8hpp}{utils/pathfinder.hpp}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacebot}{bot}}\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classbot_1_1_navigator_a3f66ee086bcb65dd3fa912c9f50a7ff8}{Navigator}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ std::unordered\_set<hlt::Position>\ m\_reserved\_positions;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::vector<std::vector<hlt::Direction>>\ m\_return\_flow\_field;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ heuristic(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\&\ ref\_a,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\&\ ref\_b,\ \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::GameMap}}\&\ ref\_game\_map)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classbot_1_1_navigator_a3f66ee086bcb65dd3fa912c9f50a7ff8}{Navigator}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classbot_1_1_navigator_a3cde74373008622dc065d04e21c306c4}{is\_reserved}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\&\ ref\_pos)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_reserved\_positions.find(ref\_pos)\ !=\ m\_reserved\_positions.end();}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classbot_1_1_navigator_a4bd15584af40aa132d04aafca51a10e2}{clear\_reservations}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{hlt::Direction}}\ \doxymbox{\hyperlink{classbot_1_1_navigator_a47c9af15e53d1eae3bf36d14ec81ebdc}{navigate\_to}}(\textcolor{keyword}{const}\ std::shared\_ptr<hlt::Ship>\&\ p\_ship,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\&\ ref\_destination,\ \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::GameMap}}\&\ ref\_game\_map,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer}{MapAnalyzer}}\&\ ref\_analyzer);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classbot_1_1_navigator_a60eaa980a3f26e81f86bba3ae9430220}{stay\_still}}(\textcolor{keyword}{const}\ std::shared\_ptr<hlt::Ship>\&\ p\_ship);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classbot_1_1_navigator_a4e89f17fe984348c65b8422f13356f08}{compute\_return\_flow\_field}}(\textcolor{keyword}{const}\ std::shared\_ptr<hlt::Player>\&\ p\_player,\ \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::GameMap}}\&\ ref\_game\_map,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classbot_1_1_map_analyzer}{MapAnalyzer}}\&\ ref\_analyzer);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classbot_1_1_navigator_a00a217fd359f49db9ff28000de7e84ed}{reserve\_position}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\&\ ref\_pos)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ m\_reserved\_positions.insert(ref\_pos);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classbot_1_1_navigator_acfd3e2ef6774f2d98cfb459ff191df84}{unreserve\_position}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\&\ ref\_pos)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ m\_reserved\_positions.erase(ref\_pos);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{hlt::Direction}}\ \doxymbox{\hyperlink{classbot_1_1_navigator_ab150567acbe06b4f732f1edd3f71ebf3}{get\_return\_direction}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structhlt_1_1_position}{hlt::Position}}\&\ ref\_pos)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_return\_flow\_field[ref\_pos.\doxymbox{\hyperlink{structhlt_1_1_position_a7912ea4d46b1e408b60a0d7ce2352a2e}{y}}][ref\_pos.\doxymbox{\hyperlink{structhlt_1_1_position_a204b2851c40201b2ca77e7e38016c220}{x}}];}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \};}
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}

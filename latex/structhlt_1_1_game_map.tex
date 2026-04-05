@@ -1,0 +1,135 @@
+\doxysection{hlt::\+Game\+Map Struct Reference}
+\hypertarget{structhlt_1_1_game_map}{}\label{structhlt_1_1_game_map}\index{hlt::GameMap@{hlt::GameMap}}
+
+
+{\ttfamily \+\#include $<$game\+\_\+map.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structhlt_1_1_map_cell}{Map\+Cell}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structhlt_1_1_game_map_a3deb2c424bacfa9d76b715e7f4780a90}{at}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&position)
+\item 
+\doxymbox{\hyperlink{structhlt_1_1_map_cell}{Map\+Cell}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structhlt_1_1_game_map_ac153aa4b77b3d9b23879bea1f9e88285}{at}} (const \doxymbox{\hyperlink{structhlt_1_1_entity}{Entity}} \&entity)
+\item 
+\doxymbox{\hyperlink{structhlt_1_1_map_cell}{Map\+Cell}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structhlt_1_1_game_map_a8193d3caa6377bb01f6201c3c72f122b}{at}} (const \doxymbox{\hyperlink{structhlt_1_1_entity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
+\item 
+\doxymbox{\hyperlink{structhlt_1_1_map_cell}{Map\+Cell}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structhlt_1_1_game_map_a710733299730ebe9a83f31a9df9222b3}{at}} (const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_entity}{Entity}} $>$ \&entity)
+\item 
+int \doxymbox{\hyperlink{structhlt_1_1_game_map_acca8d6d3b7e15c2ec9cab1d4767f7e4a}{calculate\+\_\+distance}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&source, const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&target)
+\item 
+\doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \doxymbox{\hyperlink{structhlt_1_1_game_map_a95e98d654ae2dd50e3da46cf64711f77}{normalize}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&position)
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{Direction}} $>$ \doxymbox{\hyperlink{structhlt_1_1_game_map_a6358a3474a9fe89cfffbf419874ceb02}{get\+\_\+unsafe\+\_\+moves}} (const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&source, const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&destination)
+\item 
+\doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{Direction}} \doxymbox{\hyperlink{structhlt_1_1_game_map_a443cd7d727805403d65ebc678cc82964}{naive\+\_\+navigate}} (std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_ship}{Ship}} $>$ ship, const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&destination)
+\item 
+void \doxymbox{\hyperlink{structhlt_1_1_game_map_ab4c1700c4f6146dd2304a143a0d6023b}{\+\_\+update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_game_map}{Game\+Map}} $>$ \doxymbox{\hyperlink{structhlt_1_1_game_map_a5e88fbfe9cb05af885c70b87ed500657}{\+\_\+generate}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{structhlt_1_1_game_map_adb2c324b401f9df59ed3dc0f1dae94ab}{width}}
+\item 
+int \doxymbox{\hyperlink{structhlt_1_1_game_map_a3a5a113cb7852876f169cd07211eb377}{height}}
+\item 
+std::\+vector$<$ std::\+vector$<$ \doxymbox{\hyperlink{structhlt_1_1_map_cell}{Map\+Cell}} $>$ $>$ \doxymbox{\hyperlink{structhlt_1_1_game_map_a9402f1c96bc27f4d311c88a1d00b393c}{cells}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{structhlt_1_1_game_map_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structhlt_1_1_game_map_a5e88fbfe9cb05af885c70b87ed500657}\index{hlt::GameMap@{hlt::GameMap}!\_generate@{\_generate}}
+\index{\_generate@{\_generate}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{\_generate()}{\_generate()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_a5e88fbfe9cb05af885c70b87ed500657} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_game_map}{hlt::\+\+Game\+Map}} $>$ hlt::\+\+Game\+Map::\+\+\_\+generate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{structhlt_1_1_game_map_ab4c1700c4f6146dd2304a143a0d6023b}\index{hlt::GameMap@{hlt::GameMap}!\_update@{\_update}}
+\index{\_update@{\_update}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{\_update()}{\_update()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_ab4c1700c4f6146dd2304a143a0d6023b} 
+void hlt::\+\+Game\+Map::\+\+\_\+update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{structhlt_1_1_game_map_ac153aa4b77b3d9b23879bea1f9e88285}\index{hlt::GameMap@{hlt::GameMap}!at@{at}}
+\index{at@{at}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_ac153aa4b77b3d9b23879bea1f9e88285} 
+\doxymbox{\hyperlink{structhlt_1_1_map_cell}{Map\+Cell}} \texorpdfstring{$\ast$}{*} hlt::\+\+Game\+Map::\+at (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_entity}{Entity}} \&}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structhlt_1_1_game_map_a8193d3caa6377bb01f6201c3c72f122b}\index{hlt::GameMap@{hlt::GameMap}!at@{at}}
+\index{at@{at}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_a8193d3caa6377bb01f6201c3c72f122b} 
+\doxymbox{\hyperlink{structhlt_1_1_map_cell}{Map\+Cell}} \texorpdfstring{$\ast$}{*} hlt::\+\+Game\+Map::\+at (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_entity}{Entity}} \texorpdfstring{$\ast$}{*}}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structhlt_1_1_game_map_a3deb2c424bacfa9d76b715e7f4780a90}\index{hlt::GameMap@{hlt::GameMap}!at@{at}}
+\index{at@{at}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_a3deb2c424bacfa9d76b715e7f4780a90} 
+\doxymbox{\hyperlink{structhlt_1_1_map_cell}{Map\+Cell}} \texorpdfstring{$\ast$}{*} hlt::\+\+Game\+Map::\+at (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&}]{position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structhlt_1_1_game_map_a710733299730ebe9a83f31a9df9222b3}\index{hlt::GameMap@{hlt::GameMap}!at@{at}}
+\index{at@{at}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_a710733299730ebe9a83f31a9df9222b3} 
+\doxymbox{\hyperlink{structhlt_1_1_map_cell}{Map\+Cell}} \texorpdfstring{$\ast$}{*} hlt::\+\+Game\+Map::\+at (\begin{DoxyParamCaption}\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_entity}{Entity}} $>$ \&}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structhlt_1_1_game_map_acca8d6d3b7e15c2ec9cab1d4767f7e4a}\index{hlt::GameMap@{hlt::GameMap}!calculate\_distance@{calculate\_distance}}
+\index{calculate\_distance@{calculate\_distance}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{calculate\_distance()}{calculate\_distance()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_acca8d6d3b7e15c2ec9cab1d4767f7e4a} 
+int hlt::\+\+Game\+Map::\+calculate\+\_\+distance (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&}]{source}{, }\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&}]{target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structhlt_1_1_game_map_a6358a3474a9fe89cfffbf419874ceb02}\index{hlt::GameMap@{hlt::GameMap}!get\_unsafe\_moves@{get\_unsafe\_moves}}
+\index{get\_unsafe\_moves@{get\_unsafe\_moves}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{get\_unsafe\_moves()}{get\_unsafe\_moves()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_a6358a3474a9fe89cfffbf419874ceb02} 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{Direction}} $>$ hlt::\+\+Game\+Map::\+get\+\_\+unsafe\+\_\+moves (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&}]{source}{, }\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&}]{destination}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structhlt_1_1_game_map_a443cd7d727805403d65ebc678cc82964}\index{hlt::GameMap@{hlt::GameMap}!naive\_navigate@{naive\_navigate}}
+\index{naive\_navigate@{naive\_navigate}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{naive\_navigate()}{naive\_navigate()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_a443cd7d727805403d65ebc678cc82964} 
+\doxymbox{\hyperlink{namespacehlt_afa3f9da3c4d8c0ddb90a05e39a96b4e0}{Direction}} hlt::\+\+Game\+Map::\+naive\+\_\+navigate (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{structhlt_1_1_ship}{Ship}} $>$}]{ship}{, }\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&}]{destination}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structhlt_1_1_game_map_a95e98d654ae2dd50e3da46cf64711f77}\index{hlt::GameMap@{hlt::GameMap}!normalize@{normalize}}
+\index{normalize@{normalize}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_a95e98d654ae2dd50e3da46cf64711f77} 
+\doxymbox{\hyperlink{structhlt_1_1_position}{Position}} hlt::\+\+Game\+Map::\+normalize (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structhlt_1_1_position}{Position}} \&}]{position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structhlt_1_1_game_map_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structhlt_1_1_game_map_a9402f1c96bc27f4d311c88a1d00b393c}\index{hlt::GameMap@{hlt::GameMap}!cells@{cells}}
+\index{cells@{cells}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{cells}{cells}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_a9402f1c96bc27f4d311c88a1d00b393c} 
+std::\+vector$<$std::\+vector$<$\doxymbox{\hyperlink{structhlt_1_1_map_cell}{Map\+Cell}}$>$ $>$ hlt::\+\+Game\+Map::\+cells}
+
+\Hypertarget{structhlt_1_1_game_map_a3a5a113cb7852876f169cd07211eb377}\index{hlt::GameMap@{hlt::GameMap}!height@{height}}
+\index{height@{height}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_a3a5a113cb7852876f169cd07211eb377} 
+int hlt::\+\+Game\+Map::\+height}
+
+\Hypertarget{structhlt_1_1_game_map_adb2c324b401f9df59ed3dc0f1dae94ab}\index{hlt::GameMap@{hlt::GameMap}!width@{width}}
+\index{width@{width}!hlt::GameMap@{hlt::GameMap}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily \label{structhlt_1_1_game_map_adb2c324b401f9df59ed3dc0f1dae94ab} 
+int hlt::\+\+Game\+Map::\+width}
+
+
+
+The documentation for this struct was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+hlt/\+\doxymbox{\hyperlink{game__map_8hpp}{game\+\_\+map.\+hpp}}\item 
+hlt/\+\doxymbox{\hyperlink{game__map_8cpp}{game\+\_\+map.\+cpp}}\end{DoxyCompactItemize}
