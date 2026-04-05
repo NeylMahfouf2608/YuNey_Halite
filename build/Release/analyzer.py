@@ -1,26 +1,42 @@
 # -*- coding: cp1252 -*-
+"""
+@file telemetry_expert.py
+@brief Analyseur de replays Halite III pour extraction de télémétrie CSV.
+@details
+LOGIQUE DE L'ANALYSEUR :
+1. Décompression : Lit le JSON brut via Zstandard pour accéder aux données du match.
+2. Détection de Collision : Identifie les "Accidents" (collisions alliées) en vérifiant 
+   si tous les vaisseaux impliqués dans un 'shipwreck' appartiennent au même joueur.
+3. Télémétrie temporelle : Génère un état complet (Banque, Cargo, Flotte) tour par tour 
+   pour permettre une analyse graphique des performances.
+"""
+
 import zstandard as zstd
 import json
 import sys
 import csv
 
 def analyze_replay(file_path):
+    """
+    @brief Extrait les données de performance d'un fichier .hlt.
+    """
     try:
         with open(file_path, 'rb') as f:
             dctx = zstd.ZstdDecompressor()
             replay = json.loads(dctx.decompress(f.read()))
     except Exception as e:
-        print(f"Erreur : {e}"); return
+        print(f"Erreur de lecture : {e}")
+        return
 
     player_names = {str(p['player_id']): p['name'] for p in replay['players']}
     frames = replay['full_frames']
     
-    # Préparation du fichier CSV
     with open('telemetry.csv', mode='w', newline='') as csv_file:
         fieldnames = ['Turn', 'Player', 'Bank', 'Cargo', 'Ships', 'Mined_This_Turn', 'Allied_Collisions', 'Combat_Deaths']
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
 
+        # Stockage de la frame précédente pour identifier les propriétaires des vaisseaux détruits
         prev_entities = {pid: {} for pid in player_names.keys()}
         
         print(f"Analyse de {len(frames)} tours en cours...")
@@ -29,7 +45,6 @@ def analyze_replay(file_path):
             current_entities = frame.get('entities', {})
             events = frame.get('events', [])
 
-            # Extraction des collisions pour ce tour
             collisions = {pid: 0 for pid in player_names.keys()}
             combats = {pid: 0 for pid in player_names.keys()}
             
@@ -39,14 +54,17 @@ def analyze_replay(file_path):
                     owners = set()
                     for sid in ships_involved:
                         for pid, p_ships in prev_entities.items():
-                            if str(sid) in p_ships: owners.add(pid)
+                            if str(sid) in p_ships: 
+                                owners.add(pid)
                     
-                    if len(owners) == 1: # Collision alliée (Accident)
+                    # Si un seul propriétaire est impliqué : collision entre alliés (Bug de navigation)
+                    if len(owners) == 1:
                         collisions[list(owners)[0]] += len(ships_involved)
-                    else: # Combat
-                        for pid in owners: combats[pid] += 1
+                    # Sinon : perte au combat contre un ennemi
+                    else:
+                        for pid in owners: 
+                            combats[pid] += 1
 
-            # Écriture des données pour chaque joueur
             for pid, name in player_names.items():
                 p_entities = current_entities.get(pid, {})
                 
@@ -54,16 +72,13 @@ def analyze_replay(file_path):
                 cargo = sum(e.get('energy', 0) for e in p_entities.values())
                 ships_count = len(p_entities)
                 
-                # On estime le minage (différence de cargo + dépôts)
-                # Note: Simplifié pour le CSV
-                
                 writer.writerow({
                     'Turn': turn,
                     'Player': name,
                     'Bank': bank,
                     'Cargo': cargo,
                     'Ships': ships_count,
-                    'Mined_This_Turn': 0, # Donnée complexe à extraire précisément, on se base sur Cargo/Bank
+                    'Mined_This_Turn': 0, # Calcul complexe (Delta Bank + Delta Cargo), non implémenté ici
                     'Allied_Collisions': collisions[pid],
                     'Combat_Deaths': combats[pid]
                 })
