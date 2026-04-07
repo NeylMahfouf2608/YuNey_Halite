@@ -52,3 +52,6 @@ Ce script extrait les données des replays (.hlt) pour générer un fichier tele
 - Les courbes de banque vs cargo.
 - Les pics de collisions (Accidents vs Combats).
 - L'efficacité du spawning par rapport à la richesse de la carte.
+
+
+Précisions concernant l'usage de LLM : Le README.md et le script Analyzer.py ont été écrit par Gemini
